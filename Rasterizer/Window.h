@@ -11,9 +11,9 @@ public:
     ~Window();  
     void start();  
     void stop();  
-    void draw();  
+    void draw(float deltaTime);  
     void fillRect(SDL_Rect* rc, int r, int g, int b );  
-    void fpsChanged( int fps );  
+    void fpsChanged( int fps, float deltaTime );  
     void onQuit();  
     void onKeyDown( SDL_Event* event );  
     void onKeyUp( SDL_Event* event );  

@@ -51,9 +51,9 @@ void set_pixel(SDL_Surface *surface, int x, int y, Uint32 pixel)
   *(Uint32*)target_pixel = pixel;
 }
 
-void Window::draw()
+void Window::draw(float deltaTime)
 {
-	canvas.draw();
+	canvas.draw(deltaTime);
 	const Framebuffer& framebuffer = canvas.getFramebuffer();
 	int hasError = SDL_UpdateTexture(
 		screenTexture,
@@ -84,10 +84,10 @@ void Window::stop()
 	SDL_Quit();
 }
 
-void Window::fpsChanged(int fps)
+void Window::fpsChanged(int fps, float deltaTime)
 {
 	char szFps[128];
-	sprintf_s(szFps, "%s: %d FPS", "Rasterizer", fps);
+	sprintf_s(szFps, "%s: %d FPS %f ms", "Rasterizer", fps, deltaTime);
 	SDL_SetWindowTitle(window, szFps);
 }
 
@@ -119,6 +119,7 @@ void Window::run()
 			}
 		}
 		// update/draw  
+		float deltaTime = SDL_GetTicks() - now;
 		timeElapsed = (now = SDL_GetTicks()) - past;
 		if (timeElapsed >= Config::updateInterval)
 		{
@@ -126,7 +127,7 @@ void Window::run()
 			update();
 			if (framesSkipped++ >= frameSkip)
 			{
-				draw();
+				draw(deltaTime);
 				++fps;
 				framesSkipped = 0;
 			}
@@ -135,7 +136,7 @@ void Window::run()
 		if (now - pastFps >= 1000)
 		{
 			pastFps = now;
-			fpsChanged(fps);
+			fpsChanged(fps, deltaTime);
 			fps = 0;
 		}
 		// sleep?  

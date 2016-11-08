@@ -1,14 +1,5 @@
 #include "Color.h"
 
-Color Color::decodeColor(uint32_t color)
-{
-	uint8_t r = (color & 0xFF000000) >> 6*4;
-	uint8_t g = (color & 0x00FF0000) >> 4*4;
-	uint8_t b = (color & 0x0000FF00) >> 2*4;
-	uint8_t a = (color & 0x000000FF) >> 0*4;
-
-	return Color(r, g, b, a);
-}
 
 Color operator*(const Color& color, float k) // TODO: change this
 {
@@ -20,9 +11,24 @@ Color operator*(float k, const Color& color)
 	return color * k;
 }
 
-uint32_t Color::getCoded() const
+Color operator+(const Color& colorA, const Color& colorB)
 {
-	uint32_t color = (r << 6*4) + (g << 4*4) + (b << 2*4) + (a << 0*4);
+	return Color((uint8_t) (colorA.r + colorB.r), colorA.g + colorB.g, colorA.b + colorB.b, colorA.a + colorB.a);
+}
+
+Color Color::decode(uint32_t color)
+{
+	uint8_t r = (color & 0xFF000000) >> 6*4;
+	uint8_t g = (color & 0x00FF0000) >> 4*4;
+	uint8_t b = (color & 0x0000FF00) >> 2*4;
+	uint8_t a = (color & 0x000000FF) >> 0*4;
+
+	return Color(r, g, b, a);
+}
+
+uint32_t Color::encode(const Color& c)
+{
+	uint32_t color = (c.r << 6*4) + (c.g << 4*4) + (c.b << 2*4) + (c.a << 0*4);
 	return color;
 }
 
