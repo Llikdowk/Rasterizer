@@ -5,13 +5,6 @@
 #include "Color.h"
 #include "Canvas.h"
 
-enum {  
-      DISPLAY_WIDTH  = 480  
-    , DISPLAY_HEIGHT = 320  
-    , UPDATE_INTERVAL = 1000/60  
-    , HERO_SPEED = 2  
-};  
-
 class Window {  
 public:  
     Window();  
@@ -27,11 +20,11 @@ public:
     void run();  
     void update();  
 private:  
-    std::map<int,int> keys; // No SDLK_LAST. SDL2 migration guide suggests std::map  
+    std::map<int,int> keys;
     int frameSkip;  
     int running;  
     SDL_Window* window;  
     SDL_Renderer* renderer;  
-    Sprite hero;  
+	SDL_Texture* screenTexture;
 	Canvas canvas;
 };  

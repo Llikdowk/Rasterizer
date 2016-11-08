@@ -1,6 +1,16 @@
 #include "Color.h"
 
-Color operator*(const Color& color, float k)
+Color Color::decodeColor(uint32_t color)
+{
+	uint8_t r = (color & 0xFF000000) >> 6*4;
+	uint8_t g = (color & 0x00FF0000) >> 4*4;
+	uint8_t b = (color & 0x0000FF00) >> 2*4;
+	uint8_t a = (color & 0x000000FF) >> 0*4;
+
+	return Color(r, g, b, a);
+}
+
+Color operator*(const Color& color, float k) // TODO: change this
 {
 	return Color((float)color.r/255.0f*k, (float)color.g/255.0f*k, (float)color.b/255.0f*k, color.a/255.0f);
 }
@@ -10,9 +20,9 @@ Color operator*(float k, const Color& color)
 	return color * k;
 }
 
-uint32_t Color::getCoded()
+uint32_t Color::getCoded() const
 {
-	uint32_t color = 16*16*16*16*16*16*r + 16*16*16*16*g + 16*16*b + a; // assuming big endian, change mult by << operator
+	uint32_t color = (r << 6*4) + (g << 4*4) + (b << 2*4) + (a << 0*4);
 	return color;
 }
 

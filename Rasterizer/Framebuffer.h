@@ -4,15 +4,25 @@
 class Framebuffer
 {
 public:
-	using color_t = uint32_t;
+	using rgba8_t = uint32_t;
 
-	Framebuffer();
+	const int width;
+	const int height;
+
+	Framebuffer(int width, int height);
 	~Framebuffer();
-	void set(int x, int y, color_t c);
-	color_t get(int x, int y);
-	void clear(color_t c);
+	
+	Framebuffer(const Framebuffer&);
+	Framebuffer(Framebuffer&&);
+	Framebuffer operator=(const Framebuffer&) = delete;
+	Framebuffer operator=(Framebuffer&&) = delete;
+
+	void setPixel(int x, int y, rgba8_t color);
+	const rgba8_t& getPixel(int x, int y) const;
+	const rgba8_t* getFramebuffer() const;
+	void clear(rgba8_t color);
 
 private:
-	color_t frameBuffer[];
+	rgba8_t* framebuffer;
 };
 

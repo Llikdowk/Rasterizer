@@ -1,8 +1,16 @@
 #include "Window.h"
+#include "Config.h"
+#include <iostream>
 
 Window::Window()
-	:frameSkip(0), running(0), window(NULL), renderer(NULL)
+	:
+	frameSkip(0),
+	running(0),
+	window(NULL),
+	renderer(NULL),
+	canvas(Canvas(Config::windowWidth, Config::windowHeight))
 {
+	
 }
 
 Window::~Window()
@@ -15,40 +23,49 @@ void Window::start()
 	int flags = SDL_WINDOW_SHOWN;
 	if (SDL_Init(SDL_INIT_EVERYTHING))
 	{
-		return;
+		exit(0x13);
 	}
-	if (SDL_CreateWindowAndRenderer(DISPLAY_WIDTH, DISPLAY_HEIGHT, flags, &window, &renderer))
+	if (SDL_CreateWindowAndRenderer(Config::windowWidth, Config::windowHeight, flags, &window, &renderer))
 	{
-		return;
+		exit(0x12);
+	}
+	screenTexture = SDL_CreateTexture(
+		renderer, 
+		SDL_PIXELFORMAT_RGBA8888,
+		SDL_TEXTUREACCESS_STREAMING, 
+		Config::windowWidth, 
+		Config::windowHeight
+	);
+
+	if (screenTexture == NULL)
+	{
+		exit(0x11);
 	}
 	this->running = 1;
 	run();
 }
 
+void set_pixel(SDL_Surface *surface, int x, int y, Uint32 pixel)
+{
+  Uint8* target_pixel = (Uint8*) surface->pixels + y * surface->pitch + x * sizeof(*target_pixel);
+  *(Uint32*)target_pixel = pixel;
+}
 
 void Window::draw()
 {
-	/*
-	SDL_Rect heroRect;
-
-	// Clear screen  
-	SDL_SetRenderDrawColor(renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
-	SDL_RenderClear(renderer);
-
-	// Render hero  
-	heroRect.x = hero.x;
-	heroRect.y = hero.y;
-	heroRect.w = 1;
-	heroRect.h = 1;
-	fillRect(&heroRect, 255, 0, 0);
-
-	SDL_RenderPresent(renderer);
-	*/
-	
-	
-	SDL_SetRenderDrawColor(renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
-	SDL_RenderClear(renderer);
 	canvas.draw();
+	const Framebuffer& framebuffer = canvas.getFramebuffer();
+	int hasError = SDL_UpdateTexture(
+		screenTexture,
+		NULL,
+		framebuffer.getFramebuffer(),
+		Config::windowWidth * sizeof(framebuffer.getPixel(0,0))
+	);
+	if (hasError == -1)
+	{
+		exit(0x10);
+	}
+	SDL_RenderCopy(renderer, screenTexture, NULL, NULL);
 	SDL_RenderPresent(renderer);
 }
 
@@ -67,16 +84,10 @@ void Window::stop()
 	SDL_Quit();
 }
 
-void Window::fillRect(SDL_Rect* rc, int r, int g, int b)
-{
-	SDL_SetRenderDrawColor(renderer, r, g, b, SDL_ALPHA_OPAQUE);
-	SDL_RenderFillRect(renderer, rc);
-}
-
 void Window::fpsChanged(int fps)
 {
 	char szFps[128];
-	sprintf_s(szFps, "%s: %d FPS", "SDL2 Base C++ - Use Arrow Keys to Move", fps);
+	sprintf_s(szFps, "%s: %d FPS", "Rasterizer", fps);
 	SDL_SetWindowTitle(window, szFps);
 }
 
@@ -98,18 +109,18 @@ void Window::run()
 		{
 			switch (event.type)
 			{
-			case SDL_QUIT:    onQuit();            break;
-			case SDL_KEYDOWN: onKeyDown(&event);   break;
-			case SDL_KEYUP:   onKeyUp(&event);   break;
-			case SDL_MOUSEBUTTONDOWN:
-			case SDL_MOUSEBUTTONUP:
-			case SDL_MOUSEMOTION:
+				case SDL_QUIT:    onQuit();				break;
+				case SDL_KEYDOWN: onKeyDown(&event);	break;
+				case SDL_KEYUP:   onKeyUp(&event);		break;
+				case SDL_MOUSEBUTTONDOWN:
+				case SDL_MOUSEBUTTONUP:
+				case SDL_MOUSEMOTION:
 				break;
 			}
 		}
 		// update/draw  
 		timeElapsed = (now = SDL_GetTicks()) - past;
-		if (timeElapsed >= UPDATE_INTERVAL)
+		if (timeElapsed >= Config::updateInterval)
 		{
 			past = now;
 			update();
@@ -136,19 +147,15 @@ void Window::update()
 {
 	if (keys[SDLK_LEFT])
 	{
-		hero.x -= HERO_SPEED;
 	}
 	else if (keys[SDLK_RIGHT])
 	{
-		hero.x += HERO_SPEED;
 	}
 	else if (keys[SDLK_UP])
 	{
-		hero.y -= HERO_SPEED;
 	}
 	else if (keys[SDLK_DOWN])
 	{
-		hero.y += HERO_SPEED;
 	}
 	else if (keys[SDLK_ESCAPE])
 	{

@@ -1,26 +1,27 @@
 #include "Canvas.h"
+#include "Config.h"
 
 
-
-Canvas::Canvas()
-{
-}
-
-
-Canvas::~Canvas()
+Canvas::Canvas(int width, int height) : framebuffer(Framebuffer(width, height))
 {
 }
 
 void Canvas::draw()
 {
-	for (int i = 0; i < 480; ++i) // DISPLAY_WIDTH = 480 <- should not be hardcoded but transferred
+	framebuffer.clear(Color::Black.getCoded());
+	for (int i = 0; i < Config::windowWidth; ++i)
 	{
-		drawPixel(i, 15, Color::White * 0.75f);
+		drawPixel(i, 15, Color::Cyan);
 	}
-	drawPixel(15, 25, Color::Black);
+	drawPixel(15, 25, Color::Magenta);
 }
 
 void Canvas::drawPixel(int x, int y, Color color)
 {
-	fb.set(x, y, color.getCoded());
+	framebuffer.setPixel(x, y, color.getCoded());
+}
+
+const Framebuffer& Canvas::getFramebuffer() const
+{
+	return framebuffer;
 }
