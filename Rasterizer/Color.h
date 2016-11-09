@@ -8,10 +8,10 @@ public:
 	const uint8_t r, g, b, a;
 
 	Color::Color(float r, float g, float b, float a) : 
-		r(Utils::clamp(r, 0.0f, 1.0f)*255.0f), 
-		g(Utils::clamp(g, 0.0f, 1.0f)*255.0f), 
-		b(Utils::clamp(b, 0.0f, 1.0f)*255.0f), 
-		a(Utils::clamp(a, 0.0f, 1.0f)*255.0f) {}
+		r(utils::clamp(r, 0.0f, 1.0f)*255.0f), 
+		g(utils::clamp(g, 0.0f, 1.0f)*255.0f), 
+		b(utils::clamp(b, 0.0f, 1.0f)*255.0f), 
+		a(utils::clamp(a, 0.0f, 1.0f)*255.0f) {}
 
 	Color(float r, float g, float b) : Color(r, g, b, 1.0f) {}
 	Color() : Color(0.0f, 0.0f, 0.0f, 1.0f) {};

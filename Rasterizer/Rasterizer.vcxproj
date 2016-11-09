@@ -123,6 +123,7 @@
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="EntryPoint.cpp" />
     <ClCompile Include="Framebuffer.cpp" />
+    <ClCompile Include="Time.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -130,6 +131,7 @@
     <ClInclude Include="Color.h" />
     <ClInclude Include="Config.h" />
     <ClInclude Include="Framebuffer.h" />
+    <ClInclude Include="Time.h" />
     <ClInclude Include="Window.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="Utils.h" />

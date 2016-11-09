@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <assert.h>
 
-namespace Utils
+namespace utils
 {
 	template <typename T>
 	T clamp(T value, T min, T max)

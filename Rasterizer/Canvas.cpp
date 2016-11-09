@@ -1,43 +1,30 @@
 #include "Canvas.h"
 #include <assert.h>
 #include <math.h>
+#include <iostream>
 
 Canvas::Canvas(int width, int height)
 	: 
 	width(width), 
 	height(height),
 	framebuffer(Framebuffer(width, height))
-{}
-
-void Canvas::draw(float deltaTime)
 {
 	framebuffer.clear(Color::encode(Color::Black));
-	for (int i = 0; i < width; ++i)
-	{
-		drawPixel(i, 15, Color::Cyan);
-		drawPixel(i, 25, Color::Magenta);
-		for (int j = 0; j < height; ++j)
-		{
-			if (i == j)
-			{
-				drawPixel(i, j, Color::Green);
-			}
-		}
-	}
+}
 
-	float factor = std::min(width, height);
-	float resolution = 1.0f;
-	float step = 1.0f / (resolution * factor);
-	for (float x = 0.0f, y = 0.0f; x <= 1.0f && y <= 1.0f; x += step, y += step)
-	{
-		drawPixel(x, y, Color::White);
-	}
+void Canvas::draw(s_t deltaTime)
+{
+	static s_t elapsedTime = deltaTime;
 
-	static float t = deltaTime; // elapsed time - todo: get all time variables easily
-	t += deltaTime;
-	float s = std::sin(t/100.0f) * 0.5f + 1.0f;
-	float c = std::cos(t/100.0f) * 0.5f + 1.0f;
-	drawLine(0.0f, 0.5f, 0.75f, s*0.5f, s * Color::Magenta, c * Color::Cyan); // fixme: problem with hack min/max to create line
+	framebuffer.clear(Color::encode(Color::Black));
+	float s = std::sin(elapsedTime) * 0.5f + 0.5f;
+	float c = std::cos(elapsedTime) * 0.5f + 0.5f;
+	drawLine(0.0f, s, 1.0f, c, 
+		utils::lerp(Color::Magenta, Color::Yellow, s),
+		utils::lerp(Color::Cyan, Color::Red, s)
+	);
+
+	elapsedTime += deltaTime;
 }
 
 
@@ -46,7 +33,7 @@ void Canvas::drawPixel(float x, float y, Color color)
 {
 	assert(x >= 0.0f && x <= 1.0f);
 	assert(y >= 0.0f && y <= 1.0f);
-	drawPixel(static_cast<int>(x*width), static_cast<int>(y*height), color);
+	drawPixel(static_cast<int>(x*(width-1)), static_cast<int>(y*(height-1)), color);
 }
 
 void Canvas::drawPixel(int x, int y, Color color)
@@ -56,26 +43,17 @@ void Canvas::drawPixel(int x, int y, Color color)
 
 void Canvas::drawLine(float xA, float yA, float xB, float yB, Color colorA, Color colorB)
 {
-	float s = std::max(height, width);
-	float xStep = (xB - xA) / s;
-	float yStep = (yB - yA) / s;
-	float colorStep = std::max(xStep, yStep);
+	float xStep = std::abs((xB - xA) / width);
+	float yStep = std::abs((yB - yA) / height);
+	float step = std::max(xStep, yStep);
+	step *= 1.0/std::sqrt((xB-xA)*(xB-xA) + (yB-yA)*(yB-yA)) ;
 
-	float xMin = std::min(xA, xB);
-	float xMax = std::max(xA, xB);
-	float yMin = std::min(yA, yB);
-	float yMax = std::max(yA, yB);
-
-	float x = xMin;
-	float y = yMin;
-	float t = 0.0f;
-	while (x <= xMax && y <= yMax)
+	for (float t = 0.0f; t <= 1.0f; t += step)
 	{
-		Color c = Utils::lerp(colorA, colorB, t);
+		Color c = utils::lerp(colorA, colorB, t);
+		float x = utils::lerp(xA, xB, t);
+		float y = utils::lerp(yA, yB, t);
 		drawPixel(x, y, c);
-		x += xStep;
-		y += yStep;
-		t += colorStep;
 	}
 }
 

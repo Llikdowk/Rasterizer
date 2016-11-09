@@ -51,7 +51,7 @@ void set_pixel(SDL_Surface *surface, int x, int y, Uint32 pixel)
   *(Uint32*)target_pixel = pixel;
 }
 
-void Window::draw(float deltaTime)
+void Window::draw(s_t deltaTime)
 {
 	canvas.draw(deltaTime);
 	const Framebuffer& framebuffer = canvas.getFramebuffer();
@@ -84,10 +84,10 @@ void Window::stop()
 	SDL_Quit();
 }
 
-void Window::fpsChanged(int fps, float deltaTime)
+void Window::setTitle(fps_t fps, ms_t deltaTime)
 {
-	char szFps[128];
-	sprintf_s(szFps, "%s: %d FPS %f ms", "Rasterizer", fps, deltaTime);
+	static char szFps[128];
+	sprintf_s(szFps, "%s: %d fps | %d ms", "Rasterizer", fps, deltaTime);
 	SDL_SetWindowTitle(window, szFps);
 }
 
@@ -96,15 +96,15 @@ void Window::onQuit()
 	running = 0;
 }
 
+
+
 void Window::run()
 {
-	int past = SDL_GetTicks();
-	int now = past, pastFps = past;
-	int fps = 0, framesSkipped = 0;
+	s_t deltaTime = 0.0f;
 	SDL_Event event;
+
 	while (running)
 	{
-		int timeElapsed = 0;
 		if (SDL_PollEvent(&event))
 		{
 			switch (event.type)
@@ -118,29 +118,17 @@ void Window::run()
 				break;
 			}
 		}
-		// update/draw  
-		float deltaTime = SDL_GetTicks() - now;
-		timeElapsed = (now = SDL_GetTicks()) - past;
-		if (timeElapsed >= Config::updateInterval)
+
+		s_t elapsedTime = SDL_GetTicks() / 1000.0f;
+		update();
+		draw(deltaTime);
+		if (Config::fpsLimit != 0 && to_fps(deltaTime) > Config::fpsLimit)
 		{
-			past = now;
-			update();
-			if (framesSkipped++ >= frameSkip)
-			{
-				draw(deltaTime);
-				++fps;
-				framesSkipped = 0;
-			}
+			ms_t waitTime = to_ms(to_fps(deltaTime) - Config::fpsLimit);
+			SDL_Delay(waitTime);
 		}
-		// fps  
-		if (now - pastFps >= 1000)
-		{
-			pastFps = now;
-			fpsChanged(fps, deltaTime);
-			fps = 0;
-		}
-		// sleep?  
-		SDL_Delay(1);
+		deltaTime = SDL_GetTicks() / 1000.0f - elapsedTime;		
+		setTitle(to_fps(deltaTime), deltaTime*1000.0f);
 	}
 }
 
@@ -172,4 +160,24 @@ void Window::onKeyDown(SDL_Event* evt)
 void Window::onKeyUp(SDL_Event* evt)
 {
 	keys[evt->key.keysym.sym] = 0;
+}
+
+auto Window::to_fps(ms_t deltaTime) -> fps_t
+{
+	return 1.0f / (deltaTime / 1000.0f);
+}
+
+auto Window::to_fps(s_t deltaTime) -> fps_t
+{
+	return 1.0f / deltaTime;
+}
+
+auto Window::to_ms(fps_t fps) -> ms_t
+{
+	return 1000.0f/fps;
+}
+
+auto Window::to_s(fps_t fps) -> s_t
+{
+	return 1.0f / fps;
 }

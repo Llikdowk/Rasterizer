@@ -6,8 +6,10 @@
 class Canvas
 {
 public:
+	using s_t = float;
+
 	Canvas(int width, int height);
-	void draw(float deltaTime);
+	void draw(s_t deltaTime);
 	const Framebuffer& getFramebuffer() const;
 
 private:

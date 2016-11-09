@@ -7,13 +7,17 @@
 
 class Window {  
 public:  
+	using s_t = float;
+	using ms_t = Uint32;
+	using fps_t = Uint32;
+
     Window();  
     ~Window();  
     void start();  
     void stop();  
-    void draw(float deltaTime);  
+    void draw(s_t deltaTime);  
     void fillRect(SDL_Rect* rc, int r, int g, int b );  
-    void fpsChanged( int fps, float deltaTime );  
+    void setTitle( fps_t fps, ms_t deltaTime );  
     void onQuit();  
     void onKeyDown( SDL_Event* event );  
     void onKeyUp( SDL_Event* event );  
@@ -27,4 +31,8 @@ private:
     SDL_Renderer* renderer;  
 	SDL_Texture* screenTexture;
 	Canvas canvas;
+	inline fps_t to_fps(ms_t deltaTime);
+	inline fps_t to_fps(s_t deltaTime);
+	inline ms_t to_ms(fps_t fps);
+	inline s_t to_s(fps_t fps);
 };  
