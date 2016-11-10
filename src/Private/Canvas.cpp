@@ -17,9 +17,9 @@ void Canvas::draw(s_t deltaTime)
 	static s_t elapsedTime = deltaTime;
 
 	framebuffer.clear(Color::encode(Color::Black));
-	float s = std::sin(elapsedTime) * 0.5f + 0.5f;
+	float s = std::sin(-elapsedTime) * 0.5f + 0.5f;
 	float c = std::cos(elapsedTime) * 0.5f + 0.5f;
-	drawLine(0.0f, s, 1.0f, c, 
+	drawLine(0.5f, 0.5f, c, s,
 		utils::lerp(Color::Magenta, Color::Yellow, s),
 		utils::lerp(Color::Cyan, Color::Red, s)
 	);

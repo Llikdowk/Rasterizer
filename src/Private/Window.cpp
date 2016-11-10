@@ -88,7 +88,8 @@ void Window::setTitle(fps_t fps, ms_t deltaTime)
 {
 	static char szFps[128];
 	//snprintf(szFps, "%s: %d fps | %d ms", "Rasterizer", fps, deltaTime);
-	SDL_SetWindowTitle(window, szFps);
+
+	SDL_SetWindowTitle(window, "TODO"); //title.str()); TODO
 }
 
 void Window::onQuit()
