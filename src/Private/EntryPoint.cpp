@@ -1,5 +1,4 @@
-#pragma once
-#include "Window.h" 
+#include "Window.h"
   
 int main(int argc, char** argv){  
   Window window;  
