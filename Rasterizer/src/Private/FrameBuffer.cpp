@@ -1,15 +1,14 @@
-#include "Framebuffer.h"
-#include "Config.h"
+#include "FrameBuffer.h"
 #include <assert.h>
 #include <algorithm>
 
-Framebuffer::Framebuffer(int width, int height)
-	: width(width), height(height), framebuffer(new rgba8_t[width*height])
+FrameBuffer::FrameBuffer(int width, int height)
+	: width(width), height(height), framebuffer(new uint32_t[width*height])
 {
 	clear(0xFFFFFFff);
 }
 
-Framebuffer::Framebuffer(Framebuffer&& fb) 
+FrameBuffer::FrameBuffer(FrameBuffer&& fb)
 	: 
 	width(fb.width), 
 	height(fb.height),
@@ -18,7 +17,7 @@ Framebuffer::Framebuffer(Framebuffer&& fb)
 	fb.framebuffer = nullptr;
 }
 
-Framebuffer::Framebuffer(const Framebuffer& fb)
+FrameBuffer::FrameBuffer(const FrameBuffer& fb)
 	:
 	width(fb.width),
 	height(fb.height)
@@ -26,31 +25,31 @@ Framebuffer::Framebuffer(const Framebuffer& fb)
 	std::copy(fb.framebuffer, fb.framebuffer + width*height, framebuffer);
 }
 
-Framebuffer::~Framebuffer()
+FrameBuffer::~FrameBuffer()
 {
 	delete[] framebuffer;
 }
 
-void Framebuffer::setPixel(int x, int y, rgba8_t color)
+void FrameBuffer::setPixel(int x, int y, rgba8_t color)
 {
 	assert(x >= 0 && x < width);
 	assert(y >= 0 && y < height);
 	framebuffer[y*width + x] = color;
 }
 
-auto Framebuffer::getPixel(int x, int y) const -> const rgba8_t&
+auto FrameBuffer::getPixel(int x, int y) const -> const rgba8_t&
 {
 	assert(x >= 0 && x < width);
 	assert(y >= 0 && y < height);
 	return framebuffer[y*width + x];
 }
 
-void Framebuffer::clear(rgba8_t color)
+void FrameBuffer::clear(rgba8_t color)
 {
 	std::fill(framebuffer, framebuffer + width*height, color);
 }
 
-auto Framebuffer::getFramebuffer() const -> const rgba8_t*
+auto FrameBuffer::getFrameBuffer() const -> const rgba8_t*
 {
 	return framebuffer;
 }

@@ -1,6 +1,6 @@
 #pragma once
 #include "Color.h"
-#include "Framebuffer.h"
+#include "FrameBuffer.h"
 #include <cstdint> 
 
 class Canvas
@@ -10,12 +10,12 @@ public:
 
 	Canvas(int width, int height);
 	void draw(s_t deltaTime);
-	const Framebuffer& getFramebuffer() const;
+	const FrameBuffer& getFramebuffer() const;
 
 private:
-	Framebuffer framebuffer;
 	int width;
 	int height;
+	FrameBuffer framebuffer;
 
 	void drawPixel(int x, int y, Color color);
 	void drawPixel(float x, float y, Color color); // normalized screen coordinates: [0, 1]

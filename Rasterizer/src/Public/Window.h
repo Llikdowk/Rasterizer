@@ -1,7 +1,6 @@
 #pragma once
 #include <SDL2/SDL.h>
 #include <map>
-#include "Sprite.h"
 #include "Color.h"
 #include "Canvas.h"
 
@@ -16,8 +15,7 @@ public:
     void start();  
     void stop();  
     void draw(s_t deltaTime);  
-    void fillRect(SDL_Rect* rc, int r, int g, int b );  
-    void setTitle( fps_t fps, ms_t deltaTime );  
+    void setTitle( fps_t fps, ms_t deltaTime );
     void onQuit();  
     void onKeyDown( SDL_Event* event );  
     void onKeyUp( SDL_Event* event );  

@@ -1,5 +1,6 @@
 #project(RasterizerConfig)
 
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -lmingw32")
 set(SDL2_PATH D:/Libs/SDL2-2.0.5-mingw/i686-w64-mingw32)
 #find_package(SDL2 REQUIRED)
 set(SDL2_INCLUDE_DIR ${SDL2_PATH}/include/)

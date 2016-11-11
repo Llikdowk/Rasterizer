@@ -7,7 +7,7 @@ Canvas::Canvas(int width, int height)
 	: 
 	width(width), 
 	height(height),
-	framebuffer(Framebuffer(width, height))
+	framebuffer(FrameBuffer(width, height))
 {
 	framebuffer.clear(Color::encode(Color::Black));
 }
@@ -57,7 +57,7 @@ void Canvas::drawLine(float xA, float yA, float xB, float yB, Color colorA, Colo
 	}
 }
 
-const Framebuffer& Canvas::getFramebuffer() const
+const FrameBuffer& Canvas::getFramebuffer() const
 {
 	return framebuffer;
 }

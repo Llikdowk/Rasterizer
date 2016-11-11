@@ -11,9 +11,19 @@ Color operator*(float k, const Color& color)
 	return color * k;
 }
 
-Color operator+(const Color& colorA, const Color& colorB)
+Color Color::operator+(const Color& color) const
 {
-	return Color((uint8_t) (colorA.r + colorB.r), colorA.g + colorB.g, colorA.b + colorB.b, colorA.a + colorB.a);
+	return Color((uint8_t) (r + color.r), g + color.g, b + color.b, a + color.a);
+}
+
+bool Color::operator==(const Color& color) const
+{
+	return r == color.r && g == color.g && b == color.b && a == color.a;
+}
+
+bool Color::operator!=(const Color& color) const
+{
+	return !(*this == color);
 }
 
 Color Color::decode(uint32_t color)

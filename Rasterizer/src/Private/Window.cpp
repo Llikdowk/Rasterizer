@@ -1,6 +1,6 @@
 #include "Window.h"
 #include "Config.h"
-#include <iostream>
+#include <stdio.h>
 
 Window::Window()
 	:
@@ -54,11 +54,11 @@ void set_pixel(SDL_Surface *surface, int x, int y, Uint32 pixel)
 void Window::draw(s_t deltaTime)
 {
 	canvas.draw(deltaTime);
-	const Framebuffer& framebuffer = canvas.getFramebuffer();
+	const FrameBuffer& framebuffer = canvas.getFramebuffer();
 	int hasError = SDL_UpdateTexture(
 		screenTexture,
 		NULL,
-		framebuffer.getFramebuffer(),
+		framebuffer.getFrameBuffer(),
 		Config::windowWidth * sizeof(framebuffer.getPixel(0,0))
 	);
 	if (hasError == -1)
@@ -86,10 +86,9 @@ void Window::stop()
 
 void Window::setTitle(fps_t fps, ms_t deltaTime)
 {
-	static char szFps[128];
-	//snprintf(szFps, "%s: %d fps | %d ms", "Rasterizer", fps, deltaTime);
-
-	SDL_SetWindowTitle(window, "TODO"); //title.str()); TODO
+	static char title[128];
+	snprintf(title, 128, "%s: %d fps | %d ms", "Rasterizer", fps, deltaTime);
+	SDL_SetWindowTitle(window, title);
 }
 
 void Window::onQuit()
