@@ -17,4 +17,5 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${RasterizerConfig_SOURCE_DIR}/cmake
 set(BIN_DIR ${RasterizerConfig_SOURCE_DIR}/bin)
 
 add_subdirectory(Rasterizer)
+add_subdirectory(LMath)
 add_subdirectory(TestSuite)

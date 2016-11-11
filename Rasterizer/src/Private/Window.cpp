@@ -87,7 +87,7 @@ void Window::stop()
 void Window::setTitle(fps_t fps, ms_t deltaTime)
 {
 	static char title[128];
-	snprintf(title, 128, "%s: %d fps | %d ms", "Rasterizer", fps, deltaTime);
+	snprintf(title, 128, "%s: %d fps | %d ms", "Rasterizer_test", fps, deltaTime);
 	SDL_SetWindowTitle(window, title);
 }
 

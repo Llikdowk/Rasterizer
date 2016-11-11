@@ -5,7 +5,7 @@
 #include <gtest/gtest.h>
 #include <Color.h>
 #include <FrameBuffer.h>
-#include "Utils/Format.h"
+#include "../Utils/Format.h"
 
 #define check raster
 
