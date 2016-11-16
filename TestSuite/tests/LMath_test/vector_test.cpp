@@ -7,6 +7,15 @@
 
 using namespace lmath;
 
+TEST(vector4, access) {
+	Vector4 v {3, 5, 6, 1};
+	ASSERT_EQ(v[0], v.x);
+	ASSERT_EQ(v[1], v.y);
+	ASSERT_EQ(v[2], v.z);
+	ASSERT_EQ(v[3], v.w);
+	ASSERT_DEBUG_DEATH(v[4], "");
+}
+
 TEST(vector4, distance) {
 	Vector4 v(3, -3, 1, 53);
 	Vector4 w(v);
@@ -73,7 +82,7 @@ TEST(vector3, cross)
 	Vector4 v(4, 9, 2, 5);
 	ASSERT_EQ(a.cross(v), result);
 }
-/*
+
 TEST(vector4, arithmetics) {
 	Vector4 a4 = Vector4::one;
 	float k = 4.0f;
@@ -97,11 +106,10 @@ TEST(vector4, arithmetics) {
 	a -= b;
 	ASSERT_EQ(a, Vector3::zero);
 }
-*/
+
 TEST(vector_mixed, arithmetics) {
 	Vector3 a(3, 4, 5);
 	Vector4 b(-3, -4, -5, -999);
-	std::cout << Vector4::zero << std::endl;
 	ASSERT_EQ(a + b, Vector4(0, 0, 0, -999));
 	ASSERT_NE(a + b, Vector3::zero);
 }

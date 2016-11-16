@@ -4,6 +4,7 @@
 
 #include "Vector.h"
 #include <cmath>
+#include <assert.h>
 
 using namespace lmath;
 
@@ -15,6 +16,28 @@ const Vector3 Vector3::one = Vector3(1,1,1);
 const Vector2 Vector2::zero = Vector2(0,0);
 const Vector2 Vector2::one = Vector2(1,1);
 
+Vector4::Vector4(float f) {
+	data = {f, f, f, f};
+}
+
+Vector4::Vector4(float x, float y, float z, float w)
+		//: x(data[0]), y(data[1]), z(data[2]), w(data[3])
+{
+	data = {x, y, z, w};
+}
+
+
+Vector4::Vector4(const Vector4& v)
+		//: x(data[0]), y(data[1]), z(data[2]), w(data[3])
+{
+	data = v.data;
+}
+
+Vector4::Vector4(Vector4&& v)
+		//: x(data[0]), y(data[1]), z(data[2]), w(data[3])
+{
+	data = std::move(v.data);
+}
 
 float Vector4::sqrDistance(const Vector4& v) const {
 	return (v.x - x)*(v.x - x) + (v.y - y)*(v.y - y) + (v.z - z) * (v.z - z) + (v.w - w) * (v.w - w);
@@ -60,6 +83,16 @@ Vector3 Vector3::cross(const Vector3& v) const {
 	return Vector3(y*v.z - z*v.y, z*v.x - x*v.z, x*v.y - y*v.x);
 }
 
+
+Vector4& Vector4::operator=(Vector4& v) {
+	this->data = v.data;
+	return *this;
+}
+
+Vector4& Vector4::operator=(Vector4&& v) {
+	this->data = std::move(v.data);
+	return *this;
+}
 
 Vector4::operator Vector3() const {
 	return Vector3(x, y, z);
@@ -116,6 +149,16 @@ Vector4 Vector4::operator-(const Vector4& v) const {
 
 void Vector4::operator-=(const Vector4& v) {
 	*this = *this - v;
+}
+
+float& Vector4::operator[](int i) {
+	assert(i >= 0 && i < 4);
+	return data[i];
+}
+
+const float& Vector4::operator[](int i) const {
+	assert(i >= 0 && i < 4);
+	return data[i];
 }
 
 namespace lmath

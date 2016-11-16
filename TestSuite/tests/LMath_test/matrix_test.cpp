@@ -4,6 +4,7 @@
 
 #include <gtest/gtest.h>
 #include <Matrix4.h>
+#include <Vector.h>
 
 TEST(matrix, identity_one_zero) {
 	using namespace lmath;
@@ -11,9 +12,9 @@ TEST(matrix, identity_one_zero) {
 	for (int i = 0; i < 4; ++i) {
 		for (int j = 0; j < 4; ++j) {
 			if (i == j) {
-				ASSERT_EQ(m.get(i, j), 1);
+				ASSERT_EQ(m.at(i, j), 1);
 			} else {
-				ASSERT_EQ(m.get(i, j), 0);
+				ASSERT_EQ(m.at(i, j), 0);
 			}
 		}
 	}
@@ -21,22 +22,30 @@ TEST(matrix, identity_one_zero) {
 	m = Matrix4::one;
 	for (int i = 0; i < 4; ++i) {
 		for (int j = 0; j < 4; ++j) {
-			ASSERT_EQ(m.get(i, j), 1);
+			ASSERT_EQ(m.at(i, j), 1);
 		}
 	}
 
 	m = Matrix4::zero;
 	for (int i = 0; i < 4; ++i) {
 		for (int j = 0; j < 4; ++j) {
-			ASSERT_EQ(m.get(i, j), 0);
+			ASSERT_EQ(m.at(i, j), 0);
 		}
 	}
 }
 
 TEST(matrix, modifyValues) {
 	lmath::Matrix4 m = lmath::Matrix4::one;
-	m.get(0, 1) = 5.5f;
-	ASSERT_FLOAT_EQ(m.get(0, 1), 5.5f);
+	m.at(0, 1) = 5.5f;
+	ASSERT_FLOAT_EQ(m.at(0, 1), 5.5f);
+
+	lmath::Matrix4 q = m;
+	q.at(0, 1) = 0.9f;
+	ASSERT_FLOAT_EQ(m.at(0, 1), 5.5f);
+	ASSERT_FLOAT_EQ(q.at(0, 1), 0.9f);
+
+	std::cout << q[0][3] << std::endl;
+
 }
 
 TEST(matrix, mult) {
@@ -62,5 +71,7 @@ TEST(matrix, mult) {
 	std::cout << std::endl;
 	std::cout << C*-1.5f << std::endl;
 
-
+	lmath::Vector4 v(1);
+	lmath::Vector4 res = A * v;
+	std::cout << res << std::endl;
 }

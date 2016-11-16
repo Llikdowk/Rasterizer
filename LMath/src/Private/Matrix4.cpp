@@ -3,26 +3,28 @@
 //
 
 #include "Matrix4.h"
+#include "Vector.h"
 #include <algorithm>
-#include <assert.h>
 
 using namespace lmath;
 
-const Matrix4 Matrix4::identity =
+const Matrix4 Matrix4::identity
 {
 		1, 0, 0, 0,
 		0, 1, 0, 0,
 		0, 0, 1, 1,
 		0, 0, 0, 1
 };
-const Matrix4 Matrix4::one = {
+const Matrix4 Matrix4::one
+{
 		1, 1, 1, 1,
 		1, 1, 1, 1,
 		1, 1, 1, 1,
 		1, 1, 1, 1
 };
 
-const Matrix4 Matrix4::zero = {
+const Matrix4 Matrix4::zero
+{
 		0, 0, 0, 0,
 		0, 0, 0, 0,
 		0, 0, 0, 0,
@@ -56,7 +58,7 @@ Matrix4::Matrix4(
 	data[3][3] = a44;
 
 }
-
+/*
 Matrix4::Matrix4(const float data[4][4]) {
 	std::copy(&data[0][0], &data[4][0], &(this->data)[0][0]);
 }
@@ -64,9 +66,14 @@ Matrix4::Matrix4(const float data[4][4]) {
 Matrix4::Matrix4(const float data[16]) {
 	std::copy(data, &data[15], &(this->data)[0][0]);
 }
-float& Matrix4::get(int i, int j) {
-	assert(i >= 0 && i < 4 && i >= 0 && j < 4);
-	return data[i][j];
+ */
+
+float& Matrix4::at(int i, int j) {
+	if(i >= 0 && i < 4 && i >= 0 && j < 4) {
+		return data[i][j];
+	} else {
+		throw std::out_of_range("Access violation in Matrix");
+	}
 }
 
 Matrix4 Matrix4::operator*(const Matrix4& m) const {
@@ -87,23 +94,39 @@ Matrix4 Matrix4::operator*(float k) const {
 	Matrix4 r = zero;
 	for (int i = 0; i < 4; ++i) {
 		for (int j = 0; j < 4; ++j) {
-			r.get(i, j) = data[i][j] * k;
+			r.at(i, j) = data[i][j] * k;
 		}
 	}
 	return r;
 }
 
+Row Matrix4::operator[](int i) {
+	assert(i >= 0 && i < 4);
+	return data[i];
+}
 
-namespace lmath {
-	Matrix4 operator*(float k, const Matrix4& m) {
-		return m * k;
+Vector4 Matrix4::operator*(const Vector4& v) const {
+	Vector4 r(0);
+
+	for (int i = 0; i < 4; ++i) {
+		for (int j = 0; j < 4; ++j) {
+			r[i] += data[i][j] * v[j];
+		}
 	}
 
-	std::ostream& operator<<(std::ostream& os, const Matrix4& m) {
+	return r;
+}
+
+namespace lmath {
+	Matrix4 operator*(float k, const Matrix4& M) {
+		return M * k;
+	}
+
+	std::ostream& operator<<(std::ostream& os, const Matrix4& M) {
 		os << std::endl;
 		for (int i = 0; i < 4; ++i) {
 			for (int j = 0; j < 4; ++j) {
-				os << m.data[i][j] << "\t\t";
+				os << M.data[i][j] << "\t\t";
 			}
 		os << std::endl;
 		}

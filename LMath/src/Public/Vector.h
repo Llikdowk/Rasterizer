@@ -4,6 +4,7 @@
 
 #pragma once
 #include <ostream>
+#include <array>
 
 namespace lmath
 {
@@ -18,7 +19,10 @@ namespace lmath
 		static const Vector4 zero;
 		static const Vector4 one;
 
-		Vector4(float x, float y, float z, float w) : x(x), y(y), z(z), w(w) {}
+		explicit Vector4(float f);
+		Vector4(float x, float y, float z, float w);
+		Vector4(const Vector4&);
+		Vector4(Vector4&&);
 
 		float sqrDistance(const Vector4&) const;
 		float distance(const Vector4&) const;
@@ -29,21 +33,30 @@ namespace lmath
 		void normalize();
 		rad angle(const Vector4&) const;
 
+		float& x {data[0]};
+		float& y {data[1]};
+		float& z {data[2]};
+		float& w {data[3]};
 
 	protected:
-		float x, y, z, w;
+		std::array<float, 4> data;
 
 	public:
-		bool	operator==(const Vector4&) const;
-		bool	operator!=(const Vector4&) const;
-		Vector4	operator*(float) const;
-		void	operator*=(float);
-		Vector4	operator/(float) const;
-		void	operator/=(float);
-		Vector4 operator+(const Vector4&) const;
-		void	operator+=(const Vector4&);
-		Vector4	operator-(const Vector4&) const;
-		void	operator-=(const Vector4&);
+		Vector4&	operator=(Vector4&);
+		Vector4&	operator=(Vector4&&);
+
+		bool			operator== (const Vector4&) const;
+		bool			operator!= (const Vector4&) const;
+		Vector4			operator*  (float) const;
+		void			operator*= (float);
+		Vector4			operator/  (float) const;
+		void			operator/= (float);
+		Vector4			operator+  (const Vector4&) const;
+		void			operator+= (const Vector4&);
+		Vector4			operator-  (const Vector4&) const;
+		void			operator-= (const Vector4&);
+		float&			operator[] (int i);
+		const float&	operator[] (int i) const;
 
 		friend Vector4			lmath::operator*(float k, const Vector4& v);
 		friend std::ostream&	lmath::operator<<(std::ostream& os, const Vector4& v); //TODO: should not depend on ostream
