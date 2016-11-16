@@ -17,7 +17,7 @@ const Vector2 Vector2::one = Vector2(1,1);
 
 
 float Vector4::sqrDistance(const Vector4& v) const {
-	return (v.x - x)*(v.x - x) + (v.y - y)*(v.y - y) + (v.z - z) * (v.z - z) + (v.t - t) * (v.t - t);
+	return (v.x - x)*(v.x - x) + (v.y - y)*(v.y - y) + (v.z - z) * (v.z - z) + (v.w - w) * (v.w - w);
 }
 
 float Vector4::distance(const Vector4& v) const {
@@ -25,7 +25,7 @@ float Vector4::distance(const Vector4& v) const {
 }
 
 bool Vector4::operator==(const Vector4& v) const {
-	return x == v.x && y == v.y && z == v.z && t == v.t;
+	return x == v.x && y == v.y && z == v.z && w == v.w;
 }
 
 bool Vector4::operator!=(const Vector4& v) const {
@@ -33,15 +33,15 @@ bool Vector4::operator!=(const Vector4& v) const {
 }
 
 float Vector4::dot(const Vector4 &v) const {
-	return v.x*x + v.y*y + v.z*z + v.t*t;
+	return v.x*x + v.y*y + v.z*z + v.w*w;
 }
 
 float Vector4::length() const {
-	return sqrtf(x*x + y*y + z*z + t*t);
+	return sqrtf(x*x + y*y + z*z + w*w);
 }
 
 float Vector4::sqrLength() const {
-	return x*x + y*y + z*z + t*t;
+	return x*x + y*y + z*z + w*w;
 }
 
 Vector4 Vector4::normal() const {
@@ -87,7 +87,7 @@ Vector2::operator Vector4() const {
 
 
 Vector4 Vector4::operator*(float k) const {
-	return Vector4(x * k, y * k, z * k, t * k);
+	return Vector4(x * k, y * k, z * k, w * k);
 }
 
 void Vector4::operator*=(float k) {
@@ -103,7 +103,7 @@ void Vector4::operator/=(float k) {
 }
 
 Vector4 Vector4::operator+(const Vector4& v) const {
-	return Vector4(x + v.x, y + v.y, z + v.z, t + v.t);
+	return Vector4(x + v.x, y + v.y, z + v.z, w + v.w);
 }
 
 void Vector4::operator+=(const Vector4& v) {
@@ -111,7 +111,7 @@ void Vector4::operator+=(const Vector4& v) {
 }
 
 Vector4 Vector4::operator-(const Vector4& v) const {
-	return Vector4(x - v.x, y - v.y, z - v.z, t - v.t);
+	return Vector4(x - v.x, y - v.y, z - v.z, w - v.w);
 }
 
 void Vector4::operator-=(const Vector4& v) {
@@ -125,7 +125,7 @@ namespace lmath
 	}
 
 	std::ostream& operator<<(std::ostream& os, const Vector4& v) {
-		os << "(" << v.x << ", " << v.y << ", " << v.z << ", " << v.t << ")";
+		os << "(" << v.x << ", " << v.y << ", " << v.z << ", " << v.w << ")";
 		return os;
 	}
 
@@ -138,5 +138,4 @@ namespace lmath
 		os << "(" << v.x << ", " << v.y << ")";
 		return os;
 	}
-
 }
