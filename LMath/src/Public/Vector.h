@@ -17,19 +17,22 @@ namespace lmath
 		using rad = float;
 		using float4 = std::array<float, 4>;
 
+	protected:
+		float4 data;
+
+	public:
 		static const Vector4 zero;
 		static const Vector4 one;
 
-		float& x {data[0]};
-		float& y {data[1]};
-		float& z {data[2]};
-		float& w {data[3]};
+		float& x;
+		float& y;
+		float& z;
+		float& w;
 
 		explicit Vector4(float f);
 		Vector4(float x, float y, float z, float w);
 		Vector4(const Vector4&);
-		Vector4(Vector4&&);
-		Vector4(float4&&);
+		Vector4(const float4&);
 
 		float sqrDistance(const Vector4&) const;
 		float distance(const Vector4&) const;
@@ -41,7 +44,6 @@ namespace lmath
 		rad angle(const Vector4&) const;
 
 		Vector4&		operator=(const Vector4&);
-		Vector4&		operator=(Vector4&&);
 
 		bool			operator== (const Vector4&) const;
 		bool			operator!= (const Vector4&) const;
@@ -63,8 +65,6 @@ namespace lmath
 		friend Vector4			lmath::operator*(float k, const Vector4& v);
 		friend std::ostream&	operator<<(std::ostream& os, const Vector4& v); //TODO: should not depend on ostream
 
-	protected:
-		float4 data;
 	};
 
 

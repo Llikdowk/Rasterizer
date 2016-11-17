@@ -17,32 +17,28 @@ const Vector2 Vector2::zero = Vector2(0,0);
 const Vector2 Vector2::one = Vector2(1,1);
 
 Vector4::Vector4(float f)
-		: data{{f,f,f,f}}, x(data[0]), y(data[1]), z(data[2]), w(data[3])
+		: x(data[0]), y(data[1]), z(data[2]), w(data[3])
 {
+	data = {f,f,f,f};
 }
 
 Vector4::Vector4(float x, float y, float z, float w)
-		: data{{x, y, z, w}}, x(data[0]), y(data[1]), z(data[2]), w(data[3])
+		: x(data[0]), y(data[1]), z(data[2]), w(data[3])
 {
+	data = {x, y, z, w};
 }
 
 
 Vector4::Vector4(const Vector4& v)
-		: data{{v.data}}, x(data[0]), y(data[1]), z(data[2]), w(data[3])
+		: data(v.data), x(data[0]), y(data[1]), z(data[2]), w(data[3])
 {
 }
 
-Vector4::Vector4(Vector4&& v)
-		: x(data[0]), y(data[1]), z(data[2]), w(data[3])
+Vector4::Vector4(const float4& d)
+		: data(d), x(data[0]), y(data[1]), z(data[2]), w(data[3])
 {
-	data = std::move(v.data);
 }
 
-Vector4::Vector4(float4&& data) :
-data(data), x(data[0]), y(data[1]), z(data[2]), w(data[3])
-{
-
-}
 
 float Vector4::sqrDistance(const Vector4& v) const {
 	return (v.x - x)*(v.x - x) + (v.y - y)*(v.y - y) + (v.z - z) * (v.z - z) + (v.w - w) * (v.w - w);
@@ -97,11 +93,6 @@ Vector3 Vector3::cross(const Vector3& v) const {
 
 Vector4& Vector4::operator=(const Vector4& v) {
 	this->data = v.data;
-	return *this;
-}
-
-Vector4& Vector4::operator=(Vector4&& v) {
-	this->data = std::move(v.data);
 	return *this;
 }
 

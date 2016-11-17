@@ -33,6 +33,7 @@ TEST(vector4, constructor_copy) {
 TEST(vector4, constructor_move) {
 	Vector4 v(1,2,3,4);
 	Vector4 w (std::move(v));
+
 	for (int i = 0; i < 4; ++i) {
 		ASSERT_FLOAT_EQ(w[i], i+1);
 	}
