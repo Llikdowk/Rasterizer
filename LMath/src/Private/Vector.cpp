@@ -16,31 +16,32 @@ const Vector3 Vector3::one = Vector3(1,1,1);
 const Vector2 Vector2::zero = Vector2(0,0);
 const Vector2 Vector2::one = Vector2(1,1);
 
-Vector4::Vector4(float f) {
-	data = {f, f, f, f};
+Vector4::Vector4(float f)
+		: data{{f,f,f,f}}, x(data[0]), y(data[1]), z(data[2]), w(data[3])
+{
 }
 
 Vector4::Vector4(float x, float y, float z, float w)
-		//: x(data[0]), y(data[1]), z(data[2]), w(data[3])
+		: data{{x, y, z, w}}, x(data[0]), y(data[1]), z(data[2]), w(data[3])
 {
-	data = {x, y, z, w};
 }
 
 
 Vector4::Vector4(const Vector4& v)
-		//: x(data[0]), y(data[1]), z(data[2]), w(data[3])
+		: data{{v.data}}, x(data[0]), y(data[1]), z(data[2]), w(data[3])
 {
-	data = v.data;
 }
 
 Vector4::Vector4(Vector4&& v)
-		//: x(data[0]), y(data[1]), z(data[2]), w(data[3])
+		: x(data[0]), y(data[1]), z(data[2]), w(data[3])
 {
 	data = std::move(v.data);
 }
 
-Vector4::Vector4(const float4& data) {
-	this->data = data;
+Vector4::Vector4(float4&& data) :
+data(data), x(data[0]), y(data[1]), z(data[2]), w(data[3])
+{
+
 }
 
 float Vector4::sqrDistance(const Vector4& v) const {
@@ -52,7 +53,13 @@ float Vector4::distance(const Vector4& v) const {
 }
 
 bool Vector4::operator==(const Vector4& v) const {
-	return x == v.x && y == v.y && z == v.z && w == v.w;
+	static float epsilon = 0.001f;
+	bool b = true;
+	b = b && fabs(x - v.x) < epsilon;
+	b = b && fabs(y - v.y) < epsilon;
+	b = b && fabs(z - v.z) < epsilon;
+	b = b && fabs(w - v.w) < epsilon;
+	return b;
 }
 
 bool Vector4::operator!=(const Vector4& v) const {
@@ -88,7 +95,7 @@ Vector3 Vector3::cross(const Vector3& v) const {
 }
 
 
-Vector4& Vector4::operator=(Vector4& v) {
+Vector4& Vector4::operator=(const Vector4& v) {
 	this->data = v.data;
 	return *this;
 }
@@ -189,4 +196,8 @@ namespace lmath
 		os << "(" << v.x << ", " << v.y << ")";
 		return os;
 	}
+
+
 }
+
+

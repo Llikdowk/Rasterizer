@@ -13,44 +13,45 @@ namespace lmath {
 	class Matrix4 {
 	public:
 		using float4 = std::array<float, 4>;
+		using float4x4 = std::array<std::array<float, 4>, 4>;
 
 		static const Matrix4 identity;
 		static const Matrix4 one;
 		static const Matrix4 zero;
 
+		explicit Matrix4(float f);
+		Matrix4(float4 row1, float4 row2, float4 row3, float4 row4);
 		Matrix4(
-				float a11, float a12, float a13, float a14,
-				float a21, float a22, float a23, float a24,
-				float a31, float a32, float a33, float a34,
-				float a41, float a42, float a43, float a44
+			float a11, float a12, float a13, float a14,
+			float a21, float a22, float a23, float a24,
+			float a31, float a32, float a33, float a34,
+			float a41, float a42, float a43, float a44
 		);
 
-		float& at(int, int);
 
+		float& 					at(int, int);
+		Matrix4					operator*  (const Matrix4&) const;
+		Matrix4					operator*  (float) const;
+		float4					operator*  (const float4&) const;
+		bool 					operator== (const Matrix4&) const;
+		ProxyAccess 			operator[] (int i);
 
+		friend Matrix4 			lmath::operator*(float, const Matrix4&);
+		friend std::ostream&	operator<<(std::ostream&, const Matrix4&); //TODO: should not depend on ostream
 
 	private:
-		float data[4][4];
-
-	public:
-		Matrix4 operator*(const Matrix4&) const;
-		Matrix4 operator*(float) const;
-		float4 operator*(const float4&) const;
-		ProxyAccess operator[](int i);
-
-		//friend float4 			lmath::operator*(const float4&, const Matrix4&);
-		friend Matrix4 			lmath::operator*(float, const Matrix4&);
-		friend std::ostream&	lmath::operator<<(std::ostream&, const Matrix4&); //TODO: should not depend on ostream
-
+		float4x4 data;
 	};
 
 
 	class ProxyAccess { // TODO: check asm created when accessing matrix data using this
+		friend class Matrix4;
+
 	public:
 		float& operator[](int j) { assert(j >= 0 && j < 4); return data[j]; }
+
 	private:
-		friend class Matrix4;
-		ProxyAccess(float* data) : data(data) {}
-		float* data;
+		ProxyAccess(Matrix4::float4& data) : data(data) {}
+		Matrix4::float4& data;
 	};
 }

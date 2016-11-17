@@ -7,6 +7,45 @@
 
 using namespace lmath;
 
+TEST(vector4, constructor_float) {
+	Vector4 v(3.1415f);
+	for (int i = 0; i < 4; ++i) {
+		ASSERT_FLOAT_EQ(v[i], 3.1415f);
+	}
+}
+
+TEST(vector4, constructor_multiple_floats) {
+	Vector4 v(1,2,3,4);
+	for (int i = 0; i < 4; ++i) {
+		ASSERT_FLOAT_EQ(v[i], i+1);
+	}
+}
+
+TEST(vector4, constructor_copy) {
+	Vector4 v(1,2,3,4);
+	Vector4 w = v;
+	for (int i = 0; i < 4; ++i) {
+		ASSERT_FLOAT_EQ(v[i], w[i]);
+		ASSERT_NE(&v[i], &w[i]);
+	}
+}
+
+TEST(vector4, constructor_move) {
+	Vector4 v(1,2,3,4);
+	Vector4 w (std::move(v));
+	for (int i = 0; i < 4; ++i) {
+		ASSERT_FLOAT_EQ(w[i], i+1);
+	}
+}
+
+TEST(vector4, constructor_move_float4) {
+	Vector4::float4 f4 = {1, 2, 3, 4};
+	Vector4 v(std::move(f4));
+	for (int i = 0; i < 4; ++i) {
+		ASSERT_FLOAT_EQ(v[i], i+1);
+	}
+}
+
 TEST(vector4, access) {
 	Vector4 v {3, 5, 6, 1};
 	ASSERT_EQ(v[0], v.x);

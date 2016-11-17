@@ -29,7 +29,7 @@ namespace lmath
 		Vector4(float x, float y, float z, float w);
 		Vector4(const Vector4&);
 		Vector4(Vector4&&);
-		Vector4(const float4&);
+		Vector4(float4&&);
 
 		float sqrDistance(const Vector4&) const;
 		float distance(const Vector4&) const;
@@ -40,7 +40,7 @@ namespace lmath
 		void normalize();
 		rad angle(const Vector4&) const;
 
-		Vector4&		operator=(Vector4&);
+		Vector4&		operator=(const Vector4&);
 		Vector4&		operator=(Vector4&&);
 
 		bool			operator== (const Vector4&) const;
@@ -61,7 +61,7 @@ namespace lmath
 		operator float4() const;
 
 		friend Vector4			lmath::operator*(float k, const Vector4& v);
-		friend std::ostream&	lmath::operator<<(std::ostream& os, const Vector4& v); //TODO: should not depend on ostream
+		friend std::ostream&	operator<<(std::ostream& os, const Vector4& v); //TODO: should not depend on ostream
 
 	protected:
 		float4 data;
@@ -80,7 +80,7 @@ namespace lmath
 		virtual operator Vector4() const;
 		virtual operator Vector2() const override;
 
-		friend std::ostream& lmath::operator<<(std::ostream& os, const Vector3& v); //TODO: should not depend on ostream
+		friend std::ostream& operator<<(std::ostream& os, const Vector3& v); //TODO: should not depend on ostream
 	};
 
 
@@ -94,7 +94,7 @@ namespace lmath
 		virtual operator Vector3() const override;
 		virtual operator Vector4() const;
 
-		friend std::ostream& lmath::operator<<(std::ostream& os, const Vector2& v); //TODO: should not depend on ostream
+		friend std::ostream& operator<<(std::ostream& os, const Vector2& v); //TODO: should not depend on ostream
 	};
 
 }
