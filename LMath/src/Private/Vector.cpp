@@ -39,6 +39,10 @@ Vector4::Vector4(Vector4&& v)
 	data = std::move(v.data);
 }
 
+Vector4::Vector4(const float4& data) {
+	this->data = data;
+}
+
 float Vector4::sqrDistance(const Vector4& v) const {
 	return (v.x - x)*(v.x - x) + (v.y - y)*(v.y - y) + (v.z - z) * (v.z - z) + (v.w - w) * (v.w - w);
 }
@@ -159,6 +163,10 @@ float& Vector4::operator[](int i) {
 const float& Vector4::operator[](int i) const {
 	assert(i >= 0 && i < 4);
 	return data[i];
+}
+
+Vector4::operator float4() const {
+	return data;
 }
 
 namespace lmath

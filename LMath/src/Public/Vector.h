@@ -15,14 +15,21 @@ namespace lmath
 	class Vector4 {
 	public:
 		using rad = float;
+		using float4 = std::array<float, 4>;
 
 		static const Vector4 zero;
 		static const Vector4 one;
+
+		float& x {data[0]};
+		float& y {data[1]};
+		float& z {data[2]};
+		float& w {data[3]};
 
 		explicit Vector4(float f);
 		Vector4(float x, float y, float z, float w);
 		Vector4(const Vector4&);
 		Vector4(Vector4&&);
+		Vector4(const float4&);
 
 		float sqrDistance(const Vector4&) const;
 		float distance(const Vector4&) const;
@@ -33,17 +40,8 @@ namespace lmath
 		void normalize();
 		rad angle(const Vector4&) const;
 
-		float& x {data[0]};
-		float& y {data[1]};
-		float& z {data[2]};
-		float& w {data[3]};
-
-	protected:
-		std::array<float, 4> data;
-
-	public:
-		Vector4&	operator=(Vector4&);
-		Vector4&	operator=(Vector4&&);
+		Vector4&		operator=(Vector4&);
+		Vector4&		operator=(Vector4&&);
 
 		bool			operator== (const Vector4&) const;
 		bool			operator!= (const Vector4&) const;
@@ -58,11 +56,15 @@ namespace lmath
 		float&			operator[] (int i);
 		const float&	operator[] (int i) const;
 
+		virtual	operator Vector3() const;
+		virtual operator Vector2() const;
+		operator float4() const;
+
 		friend Vector4			lmath::operator*(float k, const Vector4& v);
 		friend std::ostream&	lmath::operator<<(std::ostream& os, const Vector4& v); //TODO: should not depend on ostream
 
-		virtual	operator Vector3() const;
-		virtual operator Vector2() const;
+	protected:
+		float4 data;
 	};
 
 

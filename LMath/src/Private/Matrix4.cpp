@@ -3,8 +3,6 @@
 //
 
 #include "Matrix4.h"
-#include "Vector.h"
-#include <algorithm>
 
 using namespace lmath;
 
@@ -58,18 +56,9 @@ Matrix4::Matrix4(
 	data[3][3] = a44;
 
 }
-/*
-Matrix4::Matrix4(const float data[4][4]) {
-	std::copy(&data[0][0], &data[4][0], &(this->data)[0][0]);
-}
-
-Matrix4::Matrix4(const float data[16]) {
-	std::copy(data, &data[15], &(this->data)[0][0]);
-}
- */
 
 float& Matrix4::at(int i, int j) {
-	if(i >= 0 && i < 4 && i >= 0 && j < 4) {
+	if(i >= 0 && i < 4 && j >= 0 && j < 4) {
 		return data[i][j];
 	} else {
 		throw std::out_of_range("Access violation in Matrix");
@@ -100,15 +89,16 @@ Matrix4 Matrix4::operator*(float k) const {
 	return r;
 }
 
-Row Matrix4::operator[](int i) {
+ProxyAccess Matrix4::operator[](int i) {
 	assert(i >= 0 && i < 4);
 	return data[i];
 }
 
-Vector4 Matrix4::operator*(const Vector4& v) const {
-	Vector4 r(0);
+auto Matrix4::operator*(const float4& v) const -> float4{
+	float4 r;
 
 	for (int i = 0; i < 4; ++i) {
+		r[i] = 0;
 		for (int j = 0; j < 4; ++j) {
 			r[i] += data[i][j] * v[j];
 		}
