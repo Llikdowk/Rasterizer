@@ -106,3 +106,14 @@ TEST(matrix, mat_vec_mult) {
 	Vector4 result = {-43.25f, -47.26f, -56.84f, 47.3};
 	ASSERT_EQ(static_cast<Vector4>(A*v), result);
 }
+
+TEST(matrix, composition) {
+	Matrix4 A = {{2.25,-1.5f,1.9, 3},{0.1,-2.3f,1.1, 2},{1.02,-2,0.1, 7}, {1.1, 2.2, 3.3, 4.4}};
+	Matrix4 B = {{4.25,-2.75f,10.9, 33},{0.15,-12.3f,21.1, 32},{11.02,-2,10.1, 7.25}, {1.2, 62.2, 33.3, 14.45}};
+	Matrix4 R = A*B*B*A*B*A;
+	Vector4 v = {-7, 21.2, 4, -1.1f};
+	v = R*(R*(R*v));
+	//v /= 1.0e24f;
+	Vector4 result(-7.23167e24f, -2.91523e24f, -12.7278e24f, -11.6433e24f);
+	ASSERT_EQ(v, result);
+}

@@ -121,7 +121,7 @@ auto Matrix4::operator*(const float4& v) const -> float4 {
 }
 
 bool Matrix4::operator==(const Matrix4& m) const {
-	static float epsilon = 0.001f;
+	float epsilon = 0.001f;
 
 	for (int i = 0; i < 4; ++i) {
 		for (int j = 0; j < 4; ++j) {

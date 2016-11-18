@@ -5,6 +5,7 @@
 #include "Vector.h"
 #include <cmath>
 #include <assert.h>
+#include <iostream>
 
 using namespace lmath;
 
@@ -15,12 +16,6 @@ const Vector3 Vector3::zero = Vector3(0,0,0);
 const Vector3 Vector3::one = Vector3(1,1,1);
 const Vector2 Vector2::zero = Vector2(0,0);
 const Vector2 Vector2::one = Vector2(1,1);
-
-Vector4::Vector4(float f)
-		: x(data[0]), y(data[1]), z(data[2]), w(data[3])
-{
-	data = {f,f,f,f};
-}
 
 Vector4::Vector4(float x, float y, float z, float w)
 		: x(data[0]), y(data[1]), z(data[2]), w(data[3])
@@ -49,7 +44,14 @@ float Vector4::distance(const Vector4& v) const {
 }
 
 bool Vector4::operator==(const Vector4& v) const {
-	static float epsilon = 0.001f;
+
+	//static float epsilon = 0.001f;
+	int* exp;
+	frexpf(x, exp);
+	*exp -= 127;
+	std::cout << std::endl << "<<<<<<>>>>>>>>" << std::endl;
+	std::cout << *exp << std::endl;
+	float epsilon = *exp * 0.001f;
 	bool b = true;
 	b = b && fabs(x - v.x) < epsilon;
 	b = b && fabs(y - v.y) < epsilon;

@@ -5,7 +5,7 @@
 struct Color
 {
 public:
-	const uint8_t r, g, b, a;
+	const uint8_t r, g, b, a; // TODO: use union!?
 
 	Color(float r, float g, float b, float a) :
 		r(utils::clamp(r, 0.0f, 1.0f)*255.0f), 

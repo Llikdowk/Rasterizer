@@ -7,18 +7,24 @@
 
 using namespace lmath;
 
-TEST(vector4, constructor_float) {
-	Vector4 v(3.1415f);
-	for (int i = 0; i < 4; ++i) {
-		ASSERT_FLOAT_EQ(v[i], 3.1415f);
-	}
-}
-
 TEST(vector4, constructor_multiple_floats) {
 	Vector4 v(1,2,3,4);
 	for (int i = 0; i < 4; ++i) {
 		ASSERT_FLOAT_EQ(v[i], i+1);
 	}
+}
+
+TEST(vector4, access) {
+	Vector4 v {3, 5, 6, 1};
+	ASSERT_FLOAT_EQ(v[0], 3);
+	ASSERT_FLOAT_EQ(v[1], 5);
+	ASSERT_FLOAT_EQ(v[2], 6);
+	ASSERT_FLOAT_EQ(v[3], 1);
+	ASSERT_EQ(v[0], v.x);
+	ASSERT_EQ(v[1], v.y);
+	ASSERT_EQ(v[2], v.z);
+	ASSERT_EQ(v[3], v.w);
+	ASSERT_DEBUG_DEATH(v[4], "");
 }
 
 TEST(vector4, constructor_copy) {
@@ -30,31 +36,14 @@ TEST(vector4, constructor_copy) {
 	}
 }
 
-TEST(vector4, constructor_move) {
-	Vector4 v(1,2,3,4);
-	Vector4 w (std::move(v));
-
-	for (int i = 0; i < 4; ++i) {
-		ASSERT_FLOAT_EQ(w[i], i+1);
-	}
-}
-
-TEST(vector4, constructor_move_float4) {
+TEST(vector4, constructor_float4) {
 	Vector4::float4 f4 = {1, 2, 3, 4};
-	Vector4 v(std::move(f4));
+	Vector4 v(f4);
 	for (int i = 0; i < 4; ++i) {
 		ASSERT_FLOAT_EQ(v[i], i+1);
 	}
 }
 
-TEST(vector4, access) {
-	Vector4 v {3, 5, 6, 1};
-	ASSERT_EQ(v[0], v.x);
-	ASSERT_EQ(v[1], v.y);
-	ASSERT_EQ(v[2], v.z);
-	ASSERT_EQ(v[3], v.w);
-	ASSERT_DEBUG_DEATH(v[4], "");
-}
 
 TEST(vector4, distance) {
 	Vector4 v(3, -3, 1, 53);
@@ -74,10 +63,19 @@ TEST(vector4, distance) {
 	ASSERT_FLOAT_EQ(sqrValue, sqrResult);
 }
 
+TEST(vector4, dot) {
+	Vector4 v(2, -1, 5, 23);
+	Vector4 w(-1, 2, 8, 1);
+	float result = 59.0f;
+	ASSERT_FLOAT_EQ(v.dot(w), result);
+	ASSERT_FLOAT_EQ(v.dot(w), v.length()*w.length()*cos(v.angle(w)));
+}
+
 TEST(vector4, length) {
-	Vector4 v = Vector4::one;
-	ASSERT_EQ(v.length(), sqrtf(4));
-	ASSERT_EQ(v.sqrLength(), 4);
+	Vector4 v(4.5f, 5.25f, -6.11f, 7.12f);
+	ASSERT_FLOAT_EQ(v.length(), 11.655f);
+	ASSERT_FLOAT_EQ(v.sqrLength(), 135.839025f);
+	ASSERT_FLOAT_EQ(v.sqrLength(), v.dot(v));
 }
 
 TEST(vector4, angle) {
@@ -89,14 +87,6 @@ TEST(vector4, angle) {
 	ASSERT_FLOAT_EQ(v.angle(w), M_PI/2.0f);
 	w = Vector4(0, 0, 0, 1);
 	ASSERT_FLOAT_EQ(v.angle(w), M_PI/2.0f);
-}
-
-TEST(vector4, dot) {
-	Vector4 v(2, -1, 5, 23);
-	Vector4 w(-1, 2, 8, 1);
-	float result = 59.0f;
-	ASSERT_FLOAT_EQ(v.dot(w), result);
-	ASSERT_FLOAT_EQ(v.dot(w), v.length()*w.length()*cos(v.angle(w)));
 }
 
 TEST(vector4, normal) {
@@ -118,7 +108,6 @@ TEST(vector3, cross)
 	Vector3 b(4, 9, 2);
 	Vector3 result(-15, -2, 39);
 	ASSERT_EQ(a.cross(b), result);
-
 	Vector4 v(4, 9, 2, 5);
 	ASSERT_EQ(a.cross(v), result);
 }
