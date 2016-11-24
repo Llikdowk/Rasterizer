@@ -1,0 +1,2 @@
+D:\MinGW\bin\ar.exe qc libLMath.a  CMakeFiles/LMath.dir/Private/Matrix4.cpp.obj CMakeFiles/LMath.dir/Private/Vector.cpp.obj
+D:\MinGW\bin\ranlib.exe libLMath.a

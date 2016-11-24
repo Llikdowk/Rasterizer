@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../LMath/src/Public/Matrix4.h
+ostream
+-
+array
+-
+assert.h
+-
+
+../LMath/src/Public/Vector.h
+ostream
+-
+array
+-
+
+D:/WORKSPACE/C++/Rasterizer/LMath/src/Private/Matrix4.cpp
+Matrix4.h
+D:/WORKSPACE/C++/Rasterizer/LMath/src/Private/Matrix4.h
+cmath
+-
+
+D:/WORKSPACE/C++/Rasterizer/LMath/src/Private/Vector.cpp
+Vector.h
+D:/WORKSPACE/C++/Rasterizer/LMath/src/Private/Vector.h
+cmath
+-
+assert.h
+-
+

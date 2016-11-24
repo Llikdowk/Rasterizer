@@ -113,7 +113,7 @@ TEST(matrix, composition) {
 	Matrix4 R = A*B*B*A*B*A;
 	Vector4 v = {-7, 21.2, 4, -1.1f};
 	v = R*(R*(R*v));
-	//v /= 1.0e24f;
 	Vector4 result(-7.23167e24f, -2.91523e24f, -12.7278e24f, -11.6433e24f);
 	ASSERT_EQ(v, result);
 }
+

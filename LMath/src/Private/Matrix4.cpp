@@ -3,6 +3,7 @@
 //
 
 #include "Matrix4.h"
+#include <cmath>
 
 using namespace lmath;
 
@@ -29,45 +30,26 @@ const Matrix4 Matrix4::zero
 		0, 0, 0, 0
 };
 
-Matrix4::Matrix4(float f)
-		:
-data{{
-		  {{f,f,f,f}},
-		  {{f,f,f,f}},
-		  {{f,f,f,f}},
-		  {{f,f,f,f}}
-	  }}
-{
-	//data.fill({f,f,f,f});
+Matrix4::Matrix4(float f) {
+	data.fill({f,f,f,f});
 }
 
-Matrix4::Matrix4(float4 row1, float4 row2, float4 row3, float4 row4)
-		:
-data{{row1, row2, row3, row4}}
-{}
+Matrix4::Matrix4(float4 row1, float4 row2, float4 row3, float4 row4) {
+	data = {row1, row2, row3, row4};
+}
 
 Matrix4::Matrix4(
 		float a11, float a12, float a13, float a14,
 		float a21, float a22, float a23, float a24,
 		float a31, float a32, float a33, float a34,
 		float a41, float a42, float a43, float a44)
-		:
-data{{
-		 {{a11, a12, a13, a14}},
-		 {{a21, a22, a23, a24}},
-		 {{a31, a32, a33, a34}},
-		 {{a41, a42, a43, a44}}
-	 }}
 {
-
-	/*
 	data = {{
 				{a11, a12, a13, a14},
 				{a21, a22, a23, a24},
 				{a31, a32, a33, a34},
 				{a41, a42, a43, a44}
 			}};
-			*/
 }
 
 float& Matrix4::at(int i, int j) {
@@ -121,12 +103,14 @@ auto Matrix4::operator*(const float4& v) const -> float4 {
 }
 
 bool Matrix4::operator==(const Matrix4& m) const {
-	float epsilon = 0.001f;
+	const static float epsilon = 0.0001f;
 
 	for (int i = 0; i < 4; ++i) {
 		for (int j = 0; j < 4; ++j) {
-			float temp = data[i][j] - m.data[i][j];
-			if (temp > epsilon || temp < -epsilon) {
+			if (data[i][j] == 0.0f && m.data[i][j] == 0.0f) continue;
+			float dif = fabs(data[i][j] - m.data[i][j]);
+			float max = std::max(fabs(data[i][j]), fabs(m.data[i][j]));
+			if (dif/max > epsilon) {
 				return false;
 			}
 		}
