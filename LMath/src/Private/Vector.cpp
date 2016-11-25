@@ -48,7 +48,7 @@ bool Vector4::operator==(const Vector4& v) const {
 
 	for (int i = 0; i < 4; ++i) {
 		if (!isEqual) break;
-		if (v.data[i] == 0.0f && data[i] == 0.0f) continue;
+		if (fabs(v.data[i]) < epsilon && fabs(data[i]) < epsilon) continue;
 		isEqual = isEqual && fabs(v.data[i] - data[i])/std::max(fabs(v.data[i]), fabs(data[i])) < epsilon;
 	}
 

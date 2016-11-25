@@ -2,6 +2,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/LRasterizer.dir/Private/Canvas.cpp.obj"
   "CMakeFiles/LRasterizer.dir/Private/Color.cpp.obj"
   "CMakeFiles/LRasterizer.dir/Private/FrameBuffer.cpp.obj"
+  "CMakeFiles/LRasterizer.dir/Private/Mesh.cpp.obj"
+  "CMakeFiles/LRasterizer.dir/Private/Transform.cpp.obj"
   "CMakeFiles/LRasterizer.dir/Private/Window.cpp.obj"
   "libLRasterizer.pdb"
   "libLRasterizer.a"

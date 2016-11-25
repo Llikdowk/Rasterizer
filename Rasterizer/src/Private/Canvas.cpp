@@ -1,7 +1,14 @@
 #include "Canvas.h"
+#include "Mesh.h"
+
+#include <Matrix4.h>
+#include <Vector.h>
+
 #include <assert.h>
 #include <math.h>
 #include <iostream>
+#include <Transform.h>
+
 
 Canvas::Canvas(int width, int height)
 	: 
@@ -12,19 +19,55 @@ Canvas::Canvas(int width, int height)
 	framebuffer.clear(Color::encode(Color::Black));
 }
 
-void Canvas::draw(s_t deltaTime)
-{
+void Canvas::draw(s_t deltaTime) {
 	static s_t elapsedTime = deltaTime;
+	elapsedTime += deltaTime;
 
 	framebuffer.clear(Color::encode(Color::Black));
+	/*
 	float s = std::sin(-elapsedTime) * 0.5f + 0.5f;
 	float c = std::cos(elapsedTime) * 0.5f + 0.5f;
 	drawLine(0.5f, 0.5f, c, s,
 		utils::lerp(Color::Magenta, Color::Yellow, s),
 		utils::lerp(Color::Cyan, Color::Red, s)
 	);
+	 */
+	using namespace lmath;
 
-	elapsedTime += deltaTime;
+	//Matrix4 worldToCamera = Matrix4::identity;
+	Transform camera;
+	camera.translate(0, 0, -2);
+	//translation
+	//worldToCamera[2][3] = -2.0f;
+	Matrix4 projection = Matrix4::identity;
+	Transform cube_transform;
+	cube_transform.rotate_y(elapsedTime);
+	cube_transform.scale(sinf(elapsedTime), sinf(elapsedTime), sinf(elapsedTime));
+	/*
+	Matrix4 rotation = {
+			cosf(elapsedTime), 0, sinf(elapsedTime), 0,
+			0, 1, 0, 0,
+			-sinf(elapsedTime), 0, cosf(elapsedTime), 0,
+			0, 0, 0, 1
+	};
+	 */
+
+	Mesh cube;
+
+	for (int i = 0; i < 8; ++i) { // over vertices
+		Vector4 worldPoint = cube_transform.inverse * cube.vertices[i];
+		worldPoint.w = 1.0f;
+		Vector4 cameraPoint = camera.inverse * worldPoint; // camera-> world to camera, not local to world
+		projection[0][0] = 1.0f/-cameraPoint.z;
+		projection[1][1] = 1.0f/-cameraPoint.z;
+		projection[2][2] = 1.0f/-cameraPoint.z;
+		Vector4 screenPoint = projection * cameraPoint;
+		//NDC
+		screenPoint.x = (screenPoint.x + 1.0f) / 2.0f;
+		screenPoint.y = (screenPoint.y + 1.0f) / 2.0f;
+		drawPixel(screenPoint.x, screenPoint.y, Color::White);
+	}
+
 }
 
 

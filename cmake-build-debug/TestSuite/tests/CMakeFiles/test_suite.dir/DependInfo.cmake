@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "D:/WORKSPACE/C++/Rasterizer/TestSuite/tests/LMath_test/vector_test.cpp" "D:/WORKSPACE/C++/Rasterizer/cmake-build-debug/TestSuite/tests/CMakeFiles/test_suite.dir/LMath_test/vector_test.cpp.obj"
   "D:/WORKSPACE/C++/Rasterizer/TestSuite/tests/Rasterizer_test/test_color.cpp" "D:/WORKSPACE/C++/Rasterizer/cmake-build-debug/TestSuite/tests/CMakeFiles/test_suite.dir/Rasterizer_test/test_color.cpp.obj"
   "D:/WORKSPACE/C++/Rasterizer/TestSuite/tests/Rasterizer_test/test_framebuffer.cpp" "D:/WORKSPACE/C++/Rasterizer/cmake-build-debug/TestSuite/tests/CMakeFiles/test_suite.dir/Rasterizer_test/test_framebuffer.cpp.obj"
+  "D:/WORKSPACE/C++/Rasterizer/TestSuite/tests/Rasterizer_test/test_transform.cpp" "D:/WORKSPACE/C++/Rasterizer/cmake-build-debug/TestSuite/tests/CMakeFiles/test_suite.dir/Rasterizer_test/test_transform.cpp.obj"
   "D:/WORKSPACE/C++/Rasterizer/TestSuite/tests/Utils/Format.cpp" "D:/WORKSPACE/C++/Rasterizer/cmake-build-debug/TestSuite/tests/CMakeFiles/test_suite.dir/Utils/Format.cpp.obj"
   "D:/WORKSPACE/C++/Rasterizer/TestSuite/tests/sanity_check.cpp" "D:/WORKSPACE/C++/Rasterizer/cmake-build-debug/TestSuite/tests/CMakeFiles/test_suite.dir/sanity_check.cpp.obj"
   )

@@ -85,6 +85,7 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="D:/Libs/SDL2-2.0.5-mingw/i686-w64-mingw32/include"/>
+					<Add directory="D:/WORKSPACE/C++/Rasterizer/LMath/src/Public"/>
 					<Add directory="D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Public"/>
 					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/5.3.0/include"/>
 					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/5.3.0/../../../../include"/>
@@ -109,6 +110,7 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="D:/Libs/SDL2-2.0.5-mingw/i686-w64-mingw32/include"/>
+					<Add directory="D:/WORKSPACE/C++/Rasterizer/LMath/src/Public"/>
 					<Add directory="D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Public"/>
 					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/5.3.0/include"/>
 					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/5.3.0/../../../../include"/>
@@ -133,6 +135,7 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="D:/Libs/SDL2-2.0.5-mingw/i686-w64-mingw32/include"/>
+					<Add directory="D:/WORKSPACE/C++/Rasterizer/LMath/src/Public"/>
 					<Add directory="D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Public"/>
 					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/5.3.0/include"/>
 					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/5.3.0/../../../../include"/>
@@ -157,6 +160,7 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="D:/Libs/SDL2-2.0.5-mingw/i686-w64-mingw32/include"/>
+					<Add directory="D:/WORKSPACE/C++/Rasterizer/LMath/src/Public"/>
 					<Add directory="D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Public"/>
 					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/5.3.0/include"/>
 					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/5.3.0/../../../../include"/>
@@ -496,6 +500,12 @@
 		<Unit filename="D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Private/FrameBuffer.cpp">
 			<Option target="LRasterizer"/>
 		</Unit>
+		<Unit filename="D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Private/Mesh.cpp">
+			<Option target="LRasterizer"/>
+		</Unit>
+		<Unit filename="D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Private/Transform.cpp">
+			<Option target="LRasterizer"/>
+		</Unit>
 		<Unit filename="D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Private/Window.cpp">
 			<Option target="LRasterizer"/>
 		</Unit>
@@ -509,6 +519,12 @@
 			<Option target="LRasterizer"/>
 		</Unit>
 		<Unit filename="D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Public/FrameBuffer.h">
+			<Option target="LRasterizer"/>
+		</Unit>
+		<Unit filename="D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Public/Mesh.h">
+			<Option target="LRasterizer"/>
+		</Unit>
+		<Unit filename="D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Public/Transform.h">
 			<Option target="LRasterizer"/>
 		</Unit>
 		<Unit filename="D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Public/Utils.h">
@@ -527,6 +543,9 @@
 			<Option target="test_suite"/>
 		</Unit>
 		<Unit filename="D:/WORKSPACE/C++/Rasterizer/TestSuite/tests/Rasterizer_test/test_framebuffer.cpp">
+			<Option target="test_suite"/>
+		</Unit>
+		<Unit filename="D:/WORKSPACE/C++/Rasterizer/TestSuite/tests/Rasterizer_test/test_transform.cpp">
 			<Option target="test_suite"/>
 		</Unit>
 		<Unit filename="D:/WORKSPACE/C++/Rasterizer/TestSuite/tests/Utils/Format.cpp">

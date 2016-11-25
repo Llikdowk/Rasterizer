@@ -156,10 +156,35 @@ TestSuite/tests/CMakeFiles/test_suite.dir/Rasterizer_test/test_color.cpp.obj.pro
 TestSuite/tests/CMakeFiles/test_suite.dir/Rasterizer_test/test_color.cpp.obj.provides.build: TestSuite/tests/CMakeFiles/test_suite.dir/Rasterizer_test/test_color.cpp.obj
 
 
+TestSuite/tests/CMakeFiles/test_suite.dir/Rasterizer_test/test_transform.cpp.obj: TestSuite/tests/CMakeFiles/test_suite.dir/flags.make
+TestSuite/tests/CMakeFiles/test_suite.dir/Rasterizer_test/test_transform.cpp.obj: TestSuite/tests/CMakeFiles/test_suite.dir/includes_CXX.rsp
+TestSuite/tests/CMakeFiles/test_suite.dir/Rasterizer_test/test_transform.cpp.obj: ../TestSuite/tests/Rasterizer_test/test_transform.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\WORKSPACE\C++\Rasterizer\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object TestSuite/tests/CMakeFiles/test_suite.dir/Rasterizer_test/test_transform.cpp.obj"
+	cd /d D:\WORKSPACE\C++\Rasterizer\cmake-build-debug\TestSuite\tests && D:\MinGW\bin\g++.exe   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\test_suite.dir\Rasterizer_test\test_transform.cpp.obj -c D:\WORKSPACE\C++\Rasterizer\TestSuite\tests\Rasterizer_test\test_transform.cpp
+
+TestSuite/tests/CMakeFiles/test_suite.dir/Rasterizer_test/test_transform.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test_suite.dir/Rasterizer_test/test_transform.cpp.i"
+	cd /d D:\WORKSPACE\C++\Rasterizer\cmake-build-debug\TestSuite\tests && D:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\WORKSPACE\C++\Rasterizer\TestSuite\tests\Rasterizer_test\test_transform.cpp > CMakeFiles\test_suite.dir\Rasterizer_test\test_transform.cpp.i
+
+TestSuite/tests/CMakeFiles/test_suite.dir/Rasterizer_test/test_transform.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test_suite.dir/Rasterizer_test/test_transform.cpp.s"
+	cd /d D:\WORKSPACE\C++\Rasterizer\cmake-build-debug\TestSuite\tests && D:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\WORKSPACE\C++\Rasterizer\TestSuite\tests\Rasterizer_test\test_transform.cpp -o CMakeFiles\test_suite.dir\Rasterizer_test\test_transform.cpp.s
+
+TestSuite/tests/CMakeFiles/test_suite.dir/Rasterizer_test/test_transform.cpp.obj.requires:
+
+.PHONY : TestSuite/tests/CMakeFiles/test_suite.dir/Rasterizer_test/test_transform.cpp.obj.requires
+
+TestSuite/tests/CMakeFiles/test_suite.dir/Rasterizer_test/test_transform.cpp.obj.provides: TestSuite/tests/CMakeFiles/test_suite.dir/Rasterizer_test/test_transform.cpp.obj.requires
+	$(MAKE) -f TestSuite\tests\CMakeFiles\test_suite.dir\build.make TestSuite/tests/CMakeFiles/test_suite.dir/Rasterizer_test/test_transform.cpp.obj.provides.build
+.PHONY : TestSuite/tests/CMakeFiles/test_suite.dir/Rasterizer_test/test_transform.cpp.obj.provides
+
+TestSuite/tests/CMakeFiles/test_suite.dir/Rasterizer_test/test_transform.cpp.obj.provides.build: TestSuite/tests/CMakeFiles/test_suite.dir/Rasterizer_test/test_transform.cpp.obj
+
+
 TestSuite/tests/CMakeFiles/test_suite.dir/LMath_test/vector_test.cpp.obj: TestSuite/tests/CMakeFiles/test_suite.dir/flags.make
 TestSuite/tests/CMakeFiles/test_suite.dir/LMath_test/vector_test.cpp.obj: TestSuite/tests/CMakeFiles/test_suite.dir/includes_CXX.rsp
 TestSuite/tests/CMakeFiles/test_suite.dir/LMath_test/vector_test.cpp.obj: ../TestSuite/tests/LMath_test/vector_test.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\WORKSPACE\C++\Rasterizer\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object TestSuite/tests/CMakeFiles/test_suite.dir/LMath_test/vector_test.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\WORKSPACE\C++\Rasterizer\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object TestSuite/tests/CMakeFiles/test_suite.dir/LMath_test/vector_test.cpp.obj"
 	cd /d D:\WORKSPACE\C++\Rasterizer\cmake-build-debug\TestSuite\tests && D:\MinGW\bin\g++.exe   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\test_suite.dir\LMath_test\vector_test.cpp.obj -c D:\WORKSPACE\C++\Rasterizer\TestSuite\tests\LMath_test\vector_test.cpp
 
 TestSuite/tests/CMakeFiles/test_suite.dir/LMath_test/vector_test.cpp.i: cmake_force
@@ -184,7 +209,7 @@ TestSuite/tests/CMakeFiles/test_suite.dir/LMath_test/vector_test.cpp.obj.provide
 TestSuite/tests/CMakeFiles/test_suite.dir/LMath_test/matrix_test.cpp.obj: TestSuite/tests/CMakeFiles/test_suite.dir/flags.make
 TestSuite/tests/CMakeFiles/test_suite.dir/LMath_test/matrix_test.cpp.obj: TestSuite/tests/CMakeFiles/test_suite.dir/includes_CXX.rsp
 TestSuite/tests/CMakeFiles/test_suite.dir/LMath_test/matrix_test.cpp.obj: ../TestSuite/tests/LMath_test/matrix_test.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\WORKSPACE\C++\Rasterizer\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object TestSuite/tests/CMakeFiles/test_suite.dir/LMath_test/matrix_test.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\WORKSPACE\C++\Rasterizer\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object TestSuite/tests/CMakeFiles/test_suite.dir/LMath_test/matrix_test.cpp.obj"
 	cd /d D:\WORKSPACE\C++\Rasterizer\cmake-build-debug\TestSuite\tests && D:\MinGW\bin\g++.exe   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\test_suite.dir\LMath_test\matrix_test.cpp.obj -c D:\WORKSPACE\C++\Rasterizer\TestSuite\tests\LMath_test\matrix_test.cpp
 
 TestSuite/tests/CMakeFiles/test_suite.dir/LMath_test/matrix_test.cpp.i: cmake_force
@@ -212,6 +237,7 @@ test_suite_OBJECTS = \
 "CMakeFiles/test_suite.dir/sanity_check.cpp.obj" \
 "CMakeFiles/test_suite.dir/Rasterizer_test/test_framebuffer.cpp.obj" \
 "CMakeFiles/test_suite.dir/Rasterizer_test/test_color.cpp.obj" \
+"CMakeFiles/test_suite.dir/Rasterizer_test/test_transform.cpp.obj" \
 "CMakeFiles/test_suite.dir/LMath_test/vector_test.cpp.obj" \
 "CMakeFiles/test_suite.dir/LMath_test/matrix_test.cpp.obj"
 
@@ -222,6 +248,7 @@ TestSuite/tests/test_suite.exe: TestSuite/tests/CMakeFiles/test_suite.dir/Utils/
 TestSuite/tests/test_suite.exe: TestSuite/tests/CMakeFiles/test_suite.dir/sanity_check.cpp.obj
 TestSuite/tests/test_suite.exe: TestSuite/tests/CMakeFiles/test_suite.dir/Rasterizer_test/test_framebuffer.cpp.obj
 TestSuite/tests/test_suite.exe: TestSuite/tests/CMakeFiles/test_suite.dir/Rasterizer_test/test_color.cpp.obj
+TestSuite/tests/test_suite.exe: TestSuite/tests/CMakeFiles/test_suite.dir/Rasterizer_test/test_transform.cpp.obj
 TestSuite/tests/test_suite.exe: TestSuite/tests/CMakeFiles/test_suite.dir/LMath_test/vector_test.cpp.obj
 TestSuite/tests/test_suite.exe: TestSuite/tests/CMakeFiles/test_suite.dir/LMath_test/matrix_test.cpp.obj
 TestSuite/tests/test_suite.exe: TestSuite/tests/CMakeFiles/test_suite.dir/build.make
@@ -233,7 +260,7 @@ TestSuite/tests/test_suite.exe: TestSuite/thirdparty/googletest/googlemock/gtest
 TestSuite/tests/test_suite.exe: TestSuite/tests/CMakeFiles/test_suite.dir/linklibs.rsp
 TestSuite/tests/test_suite.exe: TestSuite/tests/CMakeFiles/test_suite.dir/objects1.rsp
 TestSuite/tests/test_suite.exe: TestSuite/tests/CMakeFiles/test_suite.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\WORKSPACE\C++\Rasterizer\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable test_suite.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\WORKSPACE\C++\Rasterizer\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable test_suite.exe"
 	cd /d D:\WORKSPACE\C++\Rasterizer\cmake-build-debug\TestSuite\tests && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\test_suite.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -245,6 +272,7 @@ TestSuite/tests/CMakeFiles/test_suite.dir/requires: TestSuite/tests/CMakeFiles/t
 TestSuite/tests/CMakeFiles/test_suite.dir/requires: TestSuite/tests/CMakeFiles/test_suite.dir/sanity_check.cpp.obj.requires
 TestSuite/tests/CMakeFiles/test_suite.dir/requires: TestSuite/tests/CMakeFiles/test_suite.dir/Rasterizer_test/test_framebuffer.cpp.obj.requires
 TestSuite/tests/CMakeFiles/test_suite.dir/requires: TestSuite/tests/CMakeFiles/test_suite.dir/Rasterizer_test/test_color.cpp.obj.requires
+TestSuite/tests/CMakeFiles/test_suite.dir/requires: TestSuite/tests/CMakeFiles/test_suite.dir/Rasterizer_test/test_transform.cpp.obj.requires
 TestSuite/tests/CMakeFiles/test_suite.dir/requires: TestSuite/tests/CMakeFiles/test_suite.dir/LMath_test/vector_test.cpp.obj.requires
 TestSuite/tests/CMakeFiles/test_suite.dir/requires: TestSuite/tests/CMakeFiles/test_suite.dir/LMath_test/matrix_test.cpp.obj.requires
 

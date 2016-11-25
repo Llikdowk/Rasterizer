@@ -82,6 +82,9 @@
 		<Unit filename="D:/WORKSPACE/C++/Rasterizer/TestSuite/tests/Rasterizer_test/test_framebuffer.cpp">
 			<Option target="test_suite"/>
 		</Unit>
+		<Unit filename="D:/WORKSPACE/C++/Rasterizer/TestSuite/tests/Rasterizer_test/test_transform.cpp">
+			<Option target="test_suite"/>
+		</Unit>
 		<Unit filename="D:/WORKSPACE/C++/Rasterizer/TestSuite/tests/Utils/Format.cpp">
 			<Option target="test_suite"/>
 		</Unit>

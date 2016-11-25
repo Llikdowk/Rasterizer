@@ -91,6 +91,7 @@ Rasterizer_EXTERNAL_OBJECTS =
 Rasterizer/src/Rasterizer.exe: Rasterizer/src/CMakeFiles/Rasterizer.dir/EntryPoint.cpp.obj
 Rasterizer/src/Rasterizer.exe: Rasterizer/src/CMakeFiles/Rasterizer.dir/build.make
 Rasterizer/src/Rasterizer.exe: Rasterizer/src/libLRasterizer.a
+Rasterizer/src/Rasterizer.exe: LMath/src/libLMath.a
 Rasterizer/src/Rasterizer.exe: D:/Libs/SDL2-2.0.5-mingw/i686-w64-mingw32/lib/libSDL2main.a
 Rasterizer/src/Rasterizer.exe: D:/Libs/SDL2-2.0.5-mingw/i686-w64-mingw32/lib/libSDL2.dll.a
 Rasterizer/src/Rasterizer.exe: Rasterizer/src/CMakeFiles/Rasterizer.dir/linklibs.rsp

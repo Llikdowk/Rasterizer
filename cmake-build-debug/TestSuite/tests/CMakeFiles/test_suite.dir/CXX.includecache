@@ -30,6 +30,10 @@ Utils.h
 cstdint
 -
 
+../Rasterizer/src/Public/Transform.h
+Matrix4.h
+-
+
 ../Rasterizer/src/Public/Utils.h
 algorithm
 -
@@ -337,6 +341,14 @@ FrameBuffer.h
 -
 ../Utils/Format.h
 D:/WORKSPACE/C++/Rasterizer/TestSuite/tests/Utils/Format.h
+
+D:/WORKSPACE/C++/Rasterizer/TestSuite/tests/Rasterizer_test/test_transform.cpp
+gtest/gtest.h
+-
+Transform.h
+-
+Vector.h
+-
 
 D:/WORKSPACE/C++/Rasterizer/TestSuite/tests/Utils/Format.cpp
 Format.h

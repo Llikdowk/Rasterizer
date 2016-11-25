@@ -131,10 +131,60 @@ Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/FrameBuffer.cpp.obj.provides: 
 Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/FrameBuffer.cpp.obj.provides.build: Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/FrameBuffer.cpp.obj
 
 
+Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Mesh.cpp.obj: Rasterizer/src/CMakeFiles/LRasterizer.dir/flags.make
+Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Mesh.cpp.obj: Rasterizer/src/CMakeFiles/LRasterizer.dir/includes_CXX.rsp
+Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Mesh.cpp.obj: ../Rasterizer/src/Private/Mesh.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\WORKSPACE\C++\Rasterizer\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Mesh.cpp.obj"
+	cd /d D:\WORKSPACE\C++\Rasterizer\cmake-build-debug\Rasterizer\src && D:\MinGW\bin\g++.exe   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\LRasterizer.dir\Private\Mesh.cpp.obj -c D:\WORKSPACE\C++\Rasterizer\Rasterizer\src\Private\Mesh.cpp
+
+Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Mesh.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/LRasterizer.dir/Private/Mesh.cpp.i"
+	cd /d D:\WORKSPACE\C++\Rasterizer\cmake-build-debug\Rasterizer\src && D:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\WORKSPACE\C++\Rasterizer\Rasterizer\src\Private\Mesh.cpp > CMakeFiles\LRasterizer.dir\Private\Mesh.cpp.i
+
+Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Mesh.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LRasterizer.dir/Private/Mesh.cpp.s"
+	cd /d D:\WORKSPACE\C++\Rasterizer\cmake-build-debug\Rasterizer\src && D:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\WORKSPACE\C++\Rasterizer\Rasterizer\src\Private\Mesh.cpp -o CMakeFiles\LRasterizer.dir\Private\Mesh.cpp.s
+
+Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Mesh.cpp.obj.requires:
+
+.PHONY : Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Mesh.cpp.obj.requires
+
+Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Mesh.cpp.obj.provides: Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Mesh.cpp.obj.requires
+	$(MAKE) -f Rasterizer\src\CMakeFiles\LRasterizer.dir\build.make Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Mesh.cpp.obj.provides.build
+.PHONY : Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Mesh.cpp.obj.provides
+
+Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Mesh.cpp.obj.provides.build: Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Mesh.cpp.obj
+
+
+Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Transform.cpp.obj: Rasterizer/src/CMakeFiles/LRasterizer.dir/flags.make
+Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Transform.cpp.obj: Rasterizer/src/CMakeFiles/LRasterizer.dir/includes_CXX.rsp
+Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Transform.cpp.obj: ../Rasterizer/src/Private/Transform.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\WORKSPACE\C++\Rasterizer\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Transform.cpp.obj"
+	cd /d D:\WORKSPACE\C++\Rasterizer\cmake-build-debug\Rasterizer\src && D:\MinGW\bin\g++.exe   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\LRasterizer.dir\Private\Transform.cpp.obj -c D:\WORKSPACE\C++\Rasterizer\Rasterizer\src\Private\Transform.cpp
+
+Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Transform.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/LRasterizer.dir/Private/Transform.cpp.i"
+	cd /d D:\WORKSPACE\C++\Rasterizer\cmake-build-debug\Rasterizer\src && D:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\WORKSPACE\C++\Rasterizer\Rasterizer\src\Private\Transform.cpp > CMakeFiles\LRasterizer.dir\Private\Transform.cpp.i
+
+Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Transform.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LRasterizer.dir/Private/Transform.cpp.s"
+	cd /d D:\WORKSPACE\C++\Rasterizer\cmake-build-debug\Rasterizer\src && D:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\WORKSPACE\C++\Rasterizer\Rasterizer\src\Private\Transform.cpp -o CMakeFiles\LRasterizer.dir\Private\Transform.cpp.s
+
+Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Transform.cpp.obj.requires:
+
+.PHONY : Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Transform.cpp.obj.requires
+
+Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Transform.cpp.obj.provides: Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Transform.cpp.obj.requires
+	$(MAKE) -f Rasterizer\src\CMakeFiles\LRasterizer.dir\build.make Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Transform.cpp.obj.provides.build
+.PHONY : Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Transform.cpp.obj.provides
+
+Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Transform.cpp.obj.provides.build: Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Transform.cpp.obj
+
+
 Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Window.cpp.obj: Rasterizer/src/CMakeFiles/LRasterizer.dir/flags.make
 Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Window.cpp.obj: Rasterizer/src/CMakeFiles/LRasterizer.dir/includes_CXX.rsp
 Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Window.cpp.obj: ../Rasterizer/src/Private/Window.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\WORKSPACE\C++\Rasterizer\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Window.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\WORKSPACE\C++\Rasterizer\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Window.cpp.obj"
 	cd /d D:\WORKSPACE\C++\Rasterizer\cmake-build-debug\Rasterizer\src && D:\MinGW\bin\g++.exe   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\LRasterizer.dir\Private\Window.cpp.obj -c D:\WORKSPACE\C++\Rasterizer\Rasterizer\src\Private\Window.cpp
 
 Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Window.cpp.i: cmake_force
@@ -161,6 +211,8 @@ LRasterizer_OBJECTS = \
 "CMakeFiles/LRasterizer.dir/Private/Canvas.cpp.obj" \
 "CMakeFiles/LRasterizer.dir/Private/Color.cpp.obj" \
 "CMakeFiles/LRasterizer.dir/Private/FrameBuffer.cpp.obj" \
+"CMakeFiles/LRasterizer.dir/Private/Mesh.cpp.obj" \
+"CMakeFiles/LRasterizer.dir/Private/Transform.cpp.obj" \
 "CMakeFiles/LRasterizer.dir/Private/Window.cpp.obj"
 
 # External object files for target LRasterizer
@@ -169,10 +221,12 @@ LRasterizer_EXTERNAL_OBJECTS =
 Rasterizer/src/libLRasterizer.a: Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Canvas.cpp.obj
 Rasterizer/src/libLRasterizer.a: Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Color.cpp.obj
 Rasterizer/src/libLRasterizer.a: Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/FrameBuffer.cpp.obj
+Rasterizer/src/libLRasterizer.a: Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Mesh.cpp.obj
+Rasterizer/src/libLRasterizer.a: Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Transform.cpp.obj
 Rasterizer/src/libLRasterizer.a: Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Window.cpp.obj
 Rasterizer/src/libLRasterizer.a: Rasterizer/src/CMakeFiles/LRasterizer.dir/build.make
 Rasterizer/src/libLRasterizer.a: Rasterizer/src/CMakeFiles/LRasterizer.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\WORKSPACE\C++\Rasterizer\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX static library libLRasterizer.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\WORKSPACE\C++\Rasterizer\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX static library libLRasterizer.a"
 	cd /d D:\WORKSPACE\C++\Rasterizer\cmake-build-debug\Rasterizer\src && $(CMAKE_COMMAND) -P CMakeFiles\LRasterizer.dir\cmake_clean_target.cmake
 	cd /d D:\WORKSPACE\C++\Rasterizer\cmake-build-debug\Rasterizer\src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\LRasterizer.dir\link.txt --verbose=$(VERBOSE)
 
@@ -184,6 +238,8 @@ Rasterizer/src/CMakeFiles/LRasterizer.dir/build: Rasterizer/src/libLRasterizer.a
 Rasterizer/src/CMakeFiles/LRasterizer.dir/requires: Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Canvas.cpp.obj.requires
 Rasterizer/src/CMakeFiles/LRasterizer.dir/requires: Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Color.cpp.obj.requires
 Rasterizer/src/CMakeFiles/LRasterizer.dir/requires: Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/FrameBuffer.cpp.obj.requires
+Rasterizer/src/CMakeFiles/LRasterizer.dir/requires: Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Mesh.cpp.obj.requires
+Rasterizer/src/CMakeFiles/LRasterizer.dir/requires: Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Transform.cpp.obj.requires
 Rasterizer/src/CMakeFiles/LRasterizer.dir/requires: Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Window.cpp.obj.requires
 
 .PHONY : Rasterizer/src/CMakeFiles/LRasterizer.dir/requires

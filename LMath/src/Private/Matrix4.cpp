@@ -84,7 +84,7 @@ Matrix4 Matrix4::operator*(float k) const {
 	return r;
 }
 
-ProxyAccess Matrix4::operator[](int i) {
+auto Matrix4::operator[](int i) -> float4& {
 	assert(i >= 0 && i < 4);
 	return data[i];
 }
@@ -107,7 +107,7 @@ bool Matrix4::operator==(const Matrix4& m) const {
 
 	for (int i = 0; i < 4; ++i) {
 		for (int j = 0; j < 4; ++j) {
-			if (data[i][j] == 0.0f && m.data[i][j] == 0.0f) continue;
+			if (fabs(data[i][j]) < epsilon && fabs(m.data[i][j]) < epsilon) continue;
 			float dif = fabs(data[i][j] - m.data[i][j]);
 			float max = std::max(fabs(data[i][j]), fabs(m.data[i][j]));
 			if (dif/max > epsilon) {
@@ -116,6 +116,16 @@ bool Matrix4::operator==(const Matrix4& m) const {
 		}
 	}
 	return true;
+}
+
+Matrix4 Matrix4::transpose() {
+	Matrix4 result;
+	for (int i = 0; i < 4; ++i) {
+		for (int j = 0; j < 4; ++j) {
+			result[i][j] = data[j][i];
+		}
+	}
+	return result;
 }
 
 namespace lmath {

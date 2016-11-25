@@ -276,6 +276,33 @@ Rasterizer_test/test_framebuffer.cpp.s:
 	cd /d D:\WORKSPACE\C++\Rasterizer\cmake-build-debug && $(MAKE) -f TestSuite\tests\CMakeFiles\test_suite.dir\build.make TestSuite/tests/CMakeFiles/test_suite.dir/Rasterizer_test/test_framebuffer.cpp.s
 .PHONY : Rasterizer_test/test_framebuffer.cpp.s
 
+Rasterizer_test/test_transform.obj: Rasterizer_test/test_transform.cpp.obj
+
+.PHONY : Rasterizer_test/test_transform.obj
+
+# target to build an object file
+Rasterizer_test/test_transform.cpp.obj:
+	cd /d D:\WORKSPACE\C++\Rasterizer\cmake-build-debug && $(MAKE) -f TestSuite\tests\CMakeFiles\test_suite.dir\build.make TestSuite/tests/CMakeFiles/test_suite.dir/Rasterizer_test/test_transform.cpp.obj
+.PHONY : Rasterizer_test/test_transform.cpp.obj
+
+Rasterizer_test/test_transform.i: Rasterizer_test/test_transform.cpp.i
+
+.PHONY : Rasterizer_test/test_transform.i
+
+# target to preprocess a source file
+Rasterizer_test/test_transform.cpp.i:
+	cd /d D:\WORKSPACE\C++\Rasterizer\cmake-build-debug && $(MAKE) -f TestSuite\tests\CMakeFiles\test_suite.dir\build.make TestSuite/tests/CMakeFiles/test_suite.dir/Rasterizer_test/test_transform.cpp.i
+.PHONY : Rasterizer_test/test_transform.cpp.i
+
+Rasterizer_test/test_transform.s: Rasterizer_test/test_transform.cpp.s
+
+.PHONY : Rasterizer_test/test_transform.s
+
+# target to generate assembly for a file
+Rasterizer_test/test_transform.cpp.s:
+	cd /d D:\WORKSPACE\C++\Rasterizer\cmake-build-debug && $(MAKE) -f TestSuite\tests\CMakeFiles\test_suite.dir\build.make TestSuite/tests/CMakeFiles/test_suite.dir/Rasterizer_test/test_transform.cpp.s
+.PHONY : Rasterizer_test/test_transform.cpp.s
+
 Utils/Format.obj: Utils/Format.cpp.obj
 
 .PHONY : Utils/Format.obj
@@ -355,6 +382,9 @@ help:
 	@echo ... Rasterizer_test/test_framebuffer.obj
 	@echo ... Rasterizer_test/test_framebuffer.i
 	@echo ... Rasterizer_test/test_framebuffer.s
+	@echo ... Rasterizer_test/test_transform.obj
+	@echo ... Rasterizer_test/test_transform.i
+	@echo ... Rasterizer_test/test_transform.s
 	@echo ... Utils/Format.obj
 	@echo ... Utils/Format.i
 	@echo ... Utils/Format.s
