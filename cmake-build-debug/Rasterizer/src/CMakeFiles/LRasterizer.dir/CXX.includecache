@@ -27,6 +27,8 @@ Color.h
 ../Rasterizer/src/Public/Color.h
 FrameBuffer.h
 ../Rasterizer/src/Public/FrameBuffer.h
+Object.h
+../Rasterizer/src/Public/Object.h
 cstdint
 -
 
@@ -47,6 +49,14 @@ vector
 -
 Vector.h
 -
+
+../Rasterizer/src/Public/Object.h
+vector
+-
+Transform.h
+../Rasterizer/src/Public/Transform.h
+Mesh.h
+../Rasterizer/src/Public/Mesh.h
 
 ../Rasterizer/src/Public/Transform.h
 Matrix4.h
@@ -636,6 +646,8 @@ math.h
 iostream
 -
 Transform.h
+-
+Object.h
 -
 
 D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Private/Color.cpp

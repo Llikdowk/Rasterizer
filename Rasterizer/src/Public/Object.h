@@ -8,10 +8,10 @@
 #include "Transform.h"
 #include "Mesh.h"
 
-struct Object {
+class Object {
+public:
 	Object* parent = nullptr;
 	std::vector<Object> children;
-
 	Transform transform; // TODO should be private to get transform compound from parents by using a getter
 	Mesh mesh;
 };

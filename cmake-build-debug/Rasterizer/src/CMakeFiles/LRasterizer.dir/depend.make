@@ -7,6 +7,7 @@ Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Canvas.cpp.obj: ../Rasterizer/
 Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Canvas.cpp.obj: ../Rasterizer/src/Public/Color.h
 Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Canvas.cpp.obj: ../Rasterizer/src/Public/FrameBuffer.h
 Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Canvas.cpp.obj: ../Rasterizer/src/Public/Mesh.h
+Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Canvas.cpp.obj: ../Rasterizer/src/Public/Object.h
 Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Canvas.cpp.obj: ../Rasterizer/src/Public/Transform.h
 Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Canvas.cpp.obj: ../Rasterizer/src/Public/Utils.h
 Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Canvas.cpp.obj: ../Rasterizer/src/Private/Canvas.cpp
@@ -27,10 +28,15 @@ Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Transform.cpp.obj: ../LMath/sr
 Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Transform.cpp.obj: ../Rasterizer/src/Public/Transform.h
 Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Transform.cpp.obj: ../Rasterizer/src/Private/Transform.cpp
 
+Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Window.cpp.obj: ../LMath/src/Public/Matrix4.h
+Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Window.cpp.obj: ../LMath/src/Public/Vector.h
 Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Window.cpp.obj: ../Rasterizer/src/Public/Canvas.h
 Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Window.cpp.obj: ../Rasterizer/src/Public/Color.h
 Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Window.cpp.obj: ../Rasterizer/src/Public/Config.h
 Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Window.cpp.obj: ../Rasterizer/src/Public/FrameBuffer.h
+Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Window.cpp.obj: ../Rasterizer/src/Public/Mesh.h
+Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Window.cpp.obj: ../Rasterizer/src/Public/Object.h
+Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Window.cpp.obj: ../Rasterizer/src/Public/Transform.h
 Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Window.cpp.obj: ../Rasterizer/src/Public/Utils.h
 Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Window.cpp.obj: ../Rasterizer/src/Public/Window.h
 Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Window.cpp.obj: D:/Libs/SDL2-2.0.5-mingw/i686-w64-mingw32/include/SDL2/SDL.h

@@ -13,6 +13,7 @@ struct Mesh {
 	std::vector<int> edges;
 	static const Mesh cube;
 
+	Mesh() {}
 	Mesh(std::vector<Vector3> vertices, std::vector<int> edges) : vertices(vertices), edges(edges) {}
 };
 

@@ -6,11 +6,29 @@
 
 #IncludeRegexTransform: 
 
+../LMath/src/Public/Matrix4.h
+Vector.h
+../LMath/src/Public/Vector.h
+ostream
+-
+array
+-
+assert.h
+-
+
+../LMath/src/Public/Vector.h
+ostream
+-
+array
+-
+
 ../Rasterizer/src/Public/Canvas.h
 Color.h
 ../Rasterizer/src/Public/Color.h
 FrameBuffer.h
 ../Rasterizer/src/Public/FrameBuffer.h
+Object.h
+../Rasterizer/src/Public/Object.h
 cstdint
 -
 
@@ -22,6 +40,24 @@ Utils.h
 
 ../Rasterizer/src/Public/FrameBuffer.h
 cstdint
+-
+
+../Rasterizer/src/Public/Mesh.h
+vector
+-
+Vector.h
+-
+
+../Rasterizer/src/Public/Object.h
+vector
+-
+Transform.h
+../Rasterizer/src/Public/Transform.h
+Mesh.h
+../Rasterizer/src/Public/Mesh.h
+
+../Rasterizer/src/Public/Transform.h
+Matrix4.h
 -
 
 ../Rasterizer/src/Public/Utils.h
