@@ -24,14 +24,15 @@ namespace lmath
 		static const Vector4 zero;
 		static const Vector4 one;
 
-		float& x;
-		float& y;
-		float& z;
-		float& w;
+		float& x = data[0];
+		float& y = data[1];
+		float& z = data[2];
+		float& w = data[3];
 
-		Vector4(float x, float y, float z, float w);
-		Vector4(const Vector4&);
-		Vector4(const float4&);
+		Vector4() {};
+		Vector4(float x, float y, float z, float w) {data = {x, y, z, w}; }
+		Vector4(const Vector4& v) : data(v.data) {};
+		Vector4(const float4& d) : data(d) {};
 
 		float sqrDistance(const Vector4&) const;
 		float distance(const Vector4&) const;

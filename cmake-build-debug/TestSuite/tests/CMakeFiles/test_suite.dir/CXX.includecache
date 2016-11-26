@@ -7,6 +7,8 @@
 #IncludeRegexTransform: 
 
 ../LMath/src/Public/Matrix4.h
+Vector.h
+../LMath/src/Public/Vector.h
 ostream
 -
 array

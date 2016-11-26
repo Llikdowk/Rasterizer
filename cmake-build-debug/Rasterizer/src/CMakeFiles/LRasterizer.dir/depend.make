@@ -23,6 +23,7 @@ Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Mesh.cpp.obj: ../Rasterizer/sr
 Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Mesh.cpp.obj: ../Rasterizer/src/Private/Mesh.cpp
 
 Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Transform.cpp.obj: ../LMath/src/Public/Matrix4.h
+Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Transform.cpp.obj: ../LMath/src/Public/Vector.h
 Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Transform.cpp.obj: ../Rasterizer/src/Public/Transform.h
 Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Transform.cpp.obj: ../Rasterizer/src/Private/Transform.cpp
 

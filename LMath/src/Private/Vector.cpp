@@ -16,23 +16,6 @@ const Vector3 Vector3::one = Vector3(1,1,1);
 const Vector2 Vector2::zero = Vector2(0,0);
 const Vector2 Vector2::one = Vector2(1,1);
 
-Vector4::Vector4(float x, float y, float z, float w)
-		: x(data[0]), y(data[1]), z(data[2]), w(data[3])
-{
-	data = {x, y, z, w};
-}
-
-
-Vector4::Vector4(const Vector4& v)
-		: data(v.data), x(data[0]), y(data[1]), z(data[2]), w(data[3])
-{
-}
-
-Vector4::Vector4(const float4& d)
-		: data(d), x(data[0]), y(data[1]), z(data[2]), w(data[3])
-{
-}
-
 
 float Vector4::sqrDistance(const Vector4& v) const {
 	return (v.x - x)*(v.x - x) + (v.y - y)*(v.y - y) + (v.z - z) * (v.z - z) + (v.w - w) * (v.w - w);

@@ -8,6 +8,7 @@
 #include <math.h>
 #include <iostream>
 #include <Transform.h>
+#include <Object.h>
 
 
 Canvas::Canvas(int width, int height)
@@ -17,6 +18,7 @@ Canvas::Canvas(int width, int height)
 	framebuffer(FrameBuffer(width, height))
 {
 	framebuffer.clear(Color::encode(Color::Black));
+
 }
 
 void Canvas::draw(s_t deltaTime) {
@@ -35,33 +37,29 @@ void Canvas::draw(s_t deltaTime) {
 	using namespace lmath;
 
 	//Matrix4 worldToCamera = Matrix4::identity;
-	Transform camera;
+	Transform camera; // TODO: transform into object
 	camera.translate(0, 0, -2);
 	//translation
 	//worldToCamera[2][3] = -2.0f;
+	float d = 1.0f;
 	Matrix4 projection = Matrix4::identity;
-	Transform cube_transform;
-	cube_transform.rotate_y(elapsedTime);
-	cube_transform.scale(sinf(elapsedTime), sinf(elapsedTime), sinf(elapsedTime));
-	/*
-	Matrix4 rotation = {
-			cosf(elapsedTime), 0, sinf(elapsedTime), 0,
-			0, 1, 0, 0,
-			-sinf(elapsedTime), 0, cosf(elapsedTime), 0,
-			0, 0, 0, 1
-	};
-	 */
+	projection[3][3] = 0;
+	projection[3][2] = d;
 
-	Mesh cube;
+	Object cube;
+	cube.mesh = Mesh::cube;
+	cube.transform.rotate_y(elapsedTime);
+	cube.transform.scale(sinf(elapsedTime), sinf(elapsedTime), sinf(elapsedTime));
+
 
 	for (int i = 0; i < 8; ++i) { // over vertices
-		Vector4 worldPoint = cube_transform.inverse * cube.vertices[i];
+		Vector4 worldPoint = cube.transform.matrix * cube.mesh.vertices[i];
 		worldPoint.w = 1.0f;
 		Vector4 cameraPoint = camera.inverse * worldPoint; // camera-> world to camera, not local to world
-		projection[0][0] = 1.0f/-cameraPoint.z;
-		projection[1][1] = 1.0f/-cameraPoint.z;
-		projection[2][2] = 1.0f/-cameraPoint.z;
 		Vector4 screenPoint = projection * cameraPoint;
+		screenPoint.x /= screenPoint.w;
+		screenPoint.y /= screenPoint.w;
+		screenPoint.z /= screenPoint.w;
 		//NDC
 		screenPoint.x = (screenPoint.x + 1.0f) / 2.0f;
 		screenPoint.y = (screenPoint.y + 1.0f) / 2.0f;
@@ -74,9 +72,11 @@ void Canvas::draw(s_t deltaTime) {
 
 void Canvas::drawPixel(float x, float y, Color color)
 {
-	assert(x >= 0.0f && x <= 1.0f);
-	assert(y >= 0.0f && y <= 1.0f);
-	drawPixel(static_cast<int>(x*(width-1)), static_cast<int>(y*(height-1)), color);
+	//assert(x >= 0.0f && x <= 1.0f);
+	//assert(y >= 0.0f && y <= 1.0f);
+	if (x >= 0.0f && x <= 1.0f && y >= 0.0f && y <= 1.0f) {
+		drawPixel(static_cast<int>(x * (width - 1)), static_cast<int>(y * (height - 1)), color);
+	}
 }
 
 void Canvas::drawPixel(int x, int y, Color color)

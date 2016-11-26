@@ -21,8 +21,8 @@ Transform& Transform::translate(float x, float y, float z) {
 			0,0,0,1
 	};
 
-	inverse = forward_translation*inverse;
-	matrix = matrix*backward_translation;
+	matrix = forward_translation*matrix;
+	inverse = inverse*backward_translation;
 	return *this;
 }
 
@@ -41,8 +41,8 @@ Transform& Transform::rotate_y(rad_t angle) {
 			0, 0, 0, 1
 	};
 
-	inverse = forward_rotation * inverse;
-	matrix = matrix * backward_rotation;
+	matrix = forward_rotation * matrix;
+	inverse = inverse * backward_rotation;
 	return *this;
 }
 
@@ -61,7 +61,7 @@ Transform& Transform::scale(float x, float y, float z) {
 			0, 0, 0, 1
 	};
 
-	inverse = forward_scale * inverse;
-	matrix = matrix * backward_scale;
+	matrix = forward_scale * matrix;
+	inverse = inverse * backward_scale;
 	return *this;
 }

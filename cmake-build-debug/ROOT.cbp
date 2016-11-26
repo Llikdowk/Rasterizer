@@ -524,6 +524,9 @@
 		<Unit filename="D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Public/Mesh.h">
 			<Option target="LRasterizer"/>
 		</Unit>
+		<Unit filename="D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Public/Object.h">
+			<Option target="LRasterizer"/>
+		</Unit>
 		<Unit filename="D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Public/Transform.h">
 			<Option target="LRasterizer"/>
 		</Unit>

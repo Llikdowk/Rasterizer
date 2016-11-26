@@ -5,7 +5,6 @@
 #pragma once
 #include <Matrix4.h>
 
-
 class Transform {
 public:
 	using rad_t = float;

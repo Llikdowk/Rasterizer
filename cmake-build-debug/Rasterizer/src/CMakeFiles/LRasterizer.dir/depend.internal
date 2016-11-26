@@ -24,6 +24,7 @@ Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Mesh.cpp.obj
  D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Private/Mesh.cpp
 Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Transform.cpp.obj
  ../LMath/src/Public/Matrix4.h
+ ../LMath/src/Public/Vector.h
  ../Rasterizer/src/Public/Transform.h
  D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Private/Transform.cpp
 Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Window.cpp.obj

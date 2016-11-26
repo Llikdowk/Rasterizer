@@ -3,17 +3,17 @@
 //
 
 #pragma once
+#include "Vector.h"
 #include <ostream>
 #include <array>
 #include <assert.h>
 
 namespace lmath {
-	class ProxyAccess;
 
 	class Matrix4 {
 	public:
-		using float4 = std::array<float, 4>;
-		using float4x4 = std::array<std::array<float, 4>, 4>;
+		using float4 = Vector4;
+		using float4x4 = std::array<float4, 4>;
 
 		static const Matrix4 identity;
 		static const Matrix4 one;

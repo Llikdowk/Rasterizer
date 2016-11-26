@@ -497,8 +497,8 @@ TestSuite/tests/preinstall:
 # All Build rule for target.
 TestSuite/tests/CMakeFiles/test_suite.dir/all: Rasterizer/src/CMakeFiles/LRasterizer.dir/all
 TestSuite/tests/CMakeFiles/test_suite.dir/all: LMath/src/CMakeFiles/LMath.dir/all
-TestSuite/tests/CMakeFiles/test_suite.dir/all: TestSuite/thirdparty/googletest/googlemock/gtest/CMakeFiles/gtest.dir/all
 TestSuite/tests/CMakeFiles/test_suite.dir/all: TestSuite/thirdparty/googletest/googlemock/gtest/CMakeFiles/gtest_main.dir/all
+TestSuite/tests/CMakeFiles/test_suite.dir/all: TestSuite/thirdparty/googletest/googlemock/gtest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f TestSuite\tests\CMakeFiles\test_suite.dir\build.make TestSuite/tests/CMakeFiles/test_suite.dir/depend
 	$(MAKE) -f TestSuite\tests\CMakeFiles\test_suite.dir\build.make TestSuite/tests/CMakeFiles/test_suite.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=D:\WORKSPACE\C++\Rasterizer\cmake-build-debug\CMakeFiles --progress-num=24,25,26,27,28,29,30,31 "Built target test_suite"
