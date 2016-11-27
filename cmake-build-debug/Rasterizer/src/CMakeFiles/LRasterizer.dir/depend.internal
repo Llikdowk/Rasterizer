@@ -9,6 +9,7 @@ Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Canvas.cpp.obj
  ../Rasterizer/src/Public/FrameBuffer.h
  ../Rasterizer/src/Public/Mesh.h
  ../Rasterizer/src/Public/Object.h
+ ../Rasterizer/src/Public/RenderMesh.h
  ../Rasterizer/src/Public/Transform.h
  ../Rasterizer/src/Public/Utils.h
  D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Private/Canvas.cpp
@@ -30,9 +31,17 @@ Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Object.cpp.obj
  ../Rasterizer/src/Public/FrameBuffer.h
  ../Rasterizer/src/Public/Mesh.h
  ../Rasterizer/src/Public/Object.h
+ ../Rasterizer/src/Public/RenderMesh.h
  ../Rasterizer/src/Public/Transform.h
  ../Rasterizer/src/Public/Utils.h
  D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Private/Object.cpp
+Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/RenderMesh.cpp.obj
+ ../LMath/src/Public/Vector.h
+ ../Rasterizer/src/Public/Color.h
+ ../Rasterizer/src/Public/FrameBuffer.h
+ ../Rasterizer/src/Public/RenderMesh.h
+ ../Rasterizer/src/Public/Utils.h
+ D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Private/RenderMesh.cpp
 Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Transform.cpp.obj
  ../LMath/src/Public/Matrix4.h
  ../LMath/src/Public/Vector.h
@@ -47,6 +56,7 @@ Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Window.cpp.obj
  ../Rasterizer/src/Public/FrameBuffer.h
  ../Rasterizer/src/Public/Mesh.h
  ../Rasterizer/src/Public/Object.h
+ ../Rasterizer/src/Public/RenderMesh.h
  ../Rasterizer/src/Public/Transform.h
  ../Rasterizer/src/Public/Utils.h
  ../Rasterizer/src/Public/Window.h

@@ -49,8 +49,17 @@ FrameBuffer& Camera::getFrameBuffer() {
 
 
 ObjectRenderable::ObjectRenderable(Camera& camera, const Mesh& mesh)
-		: Object(), camera(camera), mesh(mesh)
-{}
+		: Object(),
+		  camera(camera),
+		  mesh(mesh),
+		  renderer(&(camera.getFrameBuffer()))
+{
+	//renderer = new NaiveRender(&(camera.getFrameBuffer())); //TODO: analyze this 'new' use properly
+}
+
+ObjectRenderable::~ObjectRenderable() {
+//	delete renderer;
+}
 
 void ObjectRenderable::draw() const {
 	std::vector<Vector2> screenPoints;
@@ -68,40 +77,7 @@ void ObjectRenderable::draw() const {
 		}
 
 		for (auto edge_it = this->mesh.edges.begin(); edge_it != this->mesh.edges.end(); edge_it += 2) {
-			drawLine(screenPoints[*edge_it], screenPoints[*(edge_it+1)], Color::White);
+			renderer.drawLine(screenPoints[*edge_it], screenPoints[*(edge_it+1)], Color::White);
 		}
 }
 
-void ObjectRenderable::drawPixel(float x, float y, Color color) const {
-	//assert(x >= 0.0f && x <= 1.0f);
-	//assert(y >= 0.0f && y <= 1.0f);
-	static float ratio = camera.width/static_cast<float>(camera.height); // TODO reset when resolution is changed
-	static float border = (ratio-1)/2.0f;
-
-	if (x >= -border && x <= ratio-border && y >= 0.0f && y <= 1.0f) { // fixme! not working when vertical > horizontal
-		drawPixel(static_cast<int>( (border + x) * (camera.height - 1)), static_cast<int>(y * (camera.height - 1)), color);
-	}
-}
-
-void ObjectRenderable::drawPixel(int x, int y, Color color) const {
-	camera.getFrameBuffer().setPixel(x, y, Color::encode(color));
-}
-
-void ObjectRenderable::drawLine(float xA, float yA, float xB, float yB, Color colorA, Color colorB) const {
-	float xStep = std::abs((xB - xA) / camera.width);
-	float yStep = std::abs((yB - yA) / camera.height);
-	float step = std::max(xStep, yStep);
-	step *= 1.0/std::sqrt((xB-xA)*(xB-xA) + (yB-yA)*(yB-yA)) ;
-
-	for (float t = 0.0f; t <= 1.0f; t += step)
-	{
-		Color c = utils::lerp(colorA, colorB, t);
-		float x = utils::lerp(xA, xB, t);
-		float y = utils::lerp(yA, yB, t);
-		drawPixel(x, y, c);
-	}
-}
-
-void ObjectRenderable::drawLine(Vector2 v, Vector2 w, Color color) const {
-	drawLine(v.x, v.y, w.x, w.y, color, color);
-}

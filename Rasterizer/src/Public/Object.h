@@ -40,17 +40,14 @@ private:
 
 
 class ObjectRenderable : public Object {
+
 public:
 	ObjectRenderable(Camera&, const Mesh&);
+	virtual ~ObjectRenderable();
 	void draw() const;
 
 private:
 	Camera& camera;
 	const Mesh& mesh;
-	RenderMesh renderer;
-
-	void drawPixel(float x, float y, Color color) const;
-	void drawPixel(int x, int y, Color color) const;
-	void drawLine(float xA, float yA, float xB, float yB, Color colorA, Color colorB) const;
-	void drawLine(Vector2 v, Vector2 w, Color color) const;
+	NaiveRender renderer; // TODO RenderMesh?
 };

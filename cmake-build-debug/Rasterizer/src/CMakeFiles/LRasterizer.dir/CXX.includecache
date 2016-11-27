@@ -59,8 +59,18 @@ FrameBuffer.h
 ../Rasterizer/src/Public/FrameBuffer.h
 Color.h
 ../Rasterizer/src/Public/Color.h
+RenderMesh.h
+../Rasterizer/src/Public/RenderMesh.h
 vector
 -
+
+../Rasterizer/src/Public/RenderMesh.h
+Vector.h
+../Rasterizer/src/Public/Vector.h
+Color.h
+../Rasterizer/src/Public/Color.h
+FrameBuffer.h
+../Rasterizer/src/Public/FrameBuffer.h
 
 ../Rasterizer/src/Public/Transform.h
 Matrix4.h
@@ -659,6 +669,12 @@ D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Private/Mesh.h
 D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Private/Object.cpp
 Object.h
 D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Private/Object.h
+
+D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Private/RenderMesh.cpp
+Color.h
+-
+RenderMesh.h
+D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Private/RenderMesh.h
 
 D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Private/Transform.cpp
 Transform.h

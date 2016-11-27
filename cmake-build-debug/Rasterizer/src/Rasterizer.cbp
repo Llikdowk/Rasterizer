@@ -136,6 +136,9 @@
 		<Unit filename="D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Private/Object.cpp">
 			<Option target="LRasterizer"/>
 		</Unit>
+		<Unit filename="D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Private/RenderMesh.cpp">
+			<Option target="LRasterizer"/>
+		</Unit>
 		<Unit filename="D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Private/Transform.cpp">
 			<Option target="LRasterizer"/>
 		</Unit>
