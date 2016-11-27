@@ -11,7 +11,7 @@ public:
 
 	Canvas(int width, int height);
 	void draw(s_t deltaTime);
-	const FrameBuffer& getFramebuffer() const;
+	const FrameBuffer& getFrameBuffer() const;
 
 private:
 	int width;

@@ -8,6 +8,7 @@
 #include "Mesh.h"
 #include "FrameBuffer.h"
 #include "Color.h"
+#include "RenderMesh.h"
 #include <vector>
 
 class Object { // TODO: test
@@ -17,8 +18,8 @@ public:
 
 	virtual ~Object();
 	void setParent(Object* parent);
-	Matrix4 getMatrix();
-	Matrix4 getInverseMatrix();
+	Matrix4 getMatrix() const;
+	Matrix4 getInverseMatrix() const;
 
 protected:
 	const Object* parent = &nullObject;
@@ -40,14 +41,16 @@ private:
 
 class ObjectRenderable : public Object {
 public:
-	ObjectRenderable(Camera camera);
-	void draw();
-	void drawPixel(float x, float y, Color color);
-	void drawPixel(int x, int y, Color color);
-	void drawLine(float xA, float yA, float xB, float yB, Color colorA, Color colorB);
-	void drawLine(Vector2 v, Vector2 w, Color color);
+	ObjectRenderable(Camera&, const Mesh&);
+	void draw() const;
 
 private:
-	Mesh mesh;
-	Camera camera;
+	Camera& camera;
+	const Mesh& mesh;
+	RenderMesh renderer;
+
+	void drawPixel(float x, float y, Color color) const;
+	void drawPixel(int x, int y, Color color) const;
+	void drawLine(float xA, float yA, float xB, float yB, Color colorA, Color colorB) const;
+	void drawLine(Vector2 v, Vector2 w, Color color) const;
 };

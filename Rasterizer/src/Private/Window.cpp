@@ -54,7 +54,7 @@ void set_pixel(SDL_Surface *surface, int x, int y, Uint32 pixel)
 void Window::draw(s_t deltaTime)
 {
 	canvas.draw(deltaTime);
-	const FrameBuffer& framebuffer = canvas.getFramebuffer();
+	const FrameBuffer& framebuffer = canvas.getFrameBuffer();
 	int hasError = SDL_UpdateTexture(
 		screenTexture,
 		NULL,

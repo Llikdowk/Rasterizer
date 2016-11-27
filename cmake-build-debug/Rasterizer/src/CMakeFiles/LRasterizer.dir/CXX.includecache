@@ -637,21 +637,7 @@ D:/Libs/SDL2-2.0.5-mingw/i686-w64-mingw32/include/SDL2/close_code.h
 D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Private/Canvas.cpp
 Canvas.h
 D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Private/Canvas.h
-Mesh.h
-D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Private/Mesh.h
-Matrix4.h
--
-Vector.h
--
-assert.h
--
-math.h
--
 iostream
--
-Transform.h
--
-Object.h
 -
 
 D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Private/Color.cpp

@@ -1,15 +1,5 @@
 #include "Canvas.h"
-#include "Mesh.h"
-
-#include <Matrix4.h>
-#include <Vector.h>
-
-#include <assert.h>
-#include <math.h>
 #include <iostream>
-#include <Transform.h>
-#include <Object.h>
-
 
 Canvas::Canvas(int width, int height)
 	: 
@@ -29,20 +19,16 @@ void Canvas::draw(s_t deltaTime) {
 	elapsedTime += deltaTime;
 
 	framebuffer.clear(Color::encode(Color::Black));
-	using namespace lmath;
 
-	//Matrix4 worldToCamera = Matrix4::identity;
 	Camera camera(width, height, .5f, &framebuffer); // TODO: transform into object
 	camera.transform.translate(0, 0, -2);
-	//camera.rotate_y(elapsedTime);
+	//camera.transform.rotate_y(elapsedTime);
 
 	float s = sinf(elapsedTime);
-	ObjectRenderable cube(camera);
-	cube.mesh = Mesh::cube;
+	ObjectRenderable cube(camera, Mesh::cube);
 	cube.transform.translate(s, 0, 0);
-	ObjectRenderable cube2(camera);
+	ObjectRenderable cube2(camera, Mesh::cube);
 	cube2.setParent(&cube);
-	cube2.mesh = Mesh::cube;
 	cube2.transform.scale(.25f,.25f,.25f);
 	cube2.transform.rotate_y(3.141519f/4.0f + s);
 
@@ -54,7 +40,7 @@ void Canvas::draw(s_t deltaTime) {
 	}
 }
 
-const FrameBuffer& Canvas::getFramebuffer() const
-{
+
+const FrameBuffer& Canvas::getFrameBuffer() const {
 	return framebuffer;
 }

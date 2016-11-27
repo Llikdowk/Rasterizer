@@ -527,10 +527,10 @@
 		<Unit filename="D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Public/Mesh.h">
 			<Option target="LRasterizer"/>
 		</Unit>
-		<Unit filename="D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Public/MeshRenderer.h">
+		<Unit filename="D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Public/Object.h">
 			<Option target="LRasterizer"/>
 		</Unit>
-		<Unit filename="D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Public/Object.h">
+		<Unit filename="D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Public/RenderMesh.h">
 			<Option target="LRasterizer"/>
 		</Unit>
 		<Unit filename="D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Public/Transform.h">

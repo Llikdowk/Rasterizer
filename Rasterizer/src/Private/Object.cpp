@@ -20,11 +20,11 @@ void Object::setParent(Object* parent) {
 	parent->children.push_back(p);
 }
 
-Matrix4 Object::getMatrix() {
+Matrix4 Object::getMatrix() const {
 	return parent->transform.matrix * transform.matrix;
 }
 
-Matrix4 Object::getInverseMatrix() {
+Matrix4 Object::getInverseMatrix() const {
 	return transform.inverse * parent->transform.inverse;
 }
 
@@ -48,13 +48,13 @@ FrameBuffer& Camera::getFrameBuffer() {
 }
 
 
-ObjectRenderable::ObjectRenderable(Camera camera)
-		: Object(), camera(camera)
+ObjectRenderable::ObjectRenderable(Camera& camera, const Mesh& mesh)
+		: Object(), camera(camera), mesh(mesh)
 {}
 
-void ObjectRenderable::draw() {
+void ObjectRenderable::draw() const {
 	std::vector<Vector2> screenPoints;
-		for (std::vector<Vector3>::iterator vertex_it = this->mesh.vertices.begin(); vertex_it != this->mesh.vertices.end(); ++vertex_it) {
+		for (auto vertex_it = this->mesh.vertices.begin(); vertex_it != this->mesh.vertices.end(); ++vertex_it) {
 			Vector4 vertex = *vertex_it;
 			vertex.w = 1.0f;
 			Vector4 worldPoint = this->getMatrix() * vertex;
@@ -72,7 +72,7 @@ void ObjectRenderable::draw() {
 		}
 }
 
-void ObjectRenderable::drawPixel(float x, float y, Color color) {
+void ObjectRenderable::drawPixel(float x, float y, Color color) const {
 	//assert(x >= 0.0f && x <= 1.0f);
 	//assert(y >= 0.0f && y <= 1.0f);
 	static float ratio = camera.width/static_cast<float>(camera.height); // TODO reset when resolution is changed
@@ -83,11 +83,11 @@ void ObjectRenderable::drawPixel(float x, float y, Color color) {
 	}
 }
 
-void ObjectRenderable::drawPixel(int x, int y, Color color) {
+void ObjectRenderable::drawPixel(int x, int y, Color color) const {
 	camera.getFrameBuffer().setPixel(x, y, Color::encode(color));
 }
 
-void ObjectRenderable::drawLine(float xA, float yA, float xB, float yB, Color colorA, Color colorB) {
+void ObjectRenderable::drawLine(float xA, float yA, float xB, float yB, Color colorA, Color colorB) const {
 	float xStep = std::abs((xB - xA) / camera.width);
 	float yStep = std::abs((yB - yA) / camera.height);
 	float step = std::max(xStep, yStep);
@@ -102,6 +102,6 @@ void ObjectRenderable::drawLine(float xA, float yA, float xB, float yB, Color co
 	}
 }
 
-void ObjectRenderable::drawLine(Vector2 v, Vector2 w, Color color) {
+void ObjectRenderable::drawLine(Vector2 v, Vector2 w, Color color) const {
 	drawLine(v.x, v.y, w.x, w.y, color, color);
 }
