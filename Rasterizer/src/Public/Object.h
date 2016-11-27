@@ -6,39 +6,48 @@
 
 #include "Transform.h"
 #include "Mesh.h"
+#include "FrameBuffer.h"
+#include "Color.h"
 #include <vector>
 
 class Object { // TODO: test
 public:
-	Transform transform;
-	Mesh mesh;
-
-	~Object() {
-		for (std::vector<Object *>::iterator child_it = children.begin(); child_it != children.end(); ++child_it) {
-			(*child_it)->transform.matrix = getMatrix();
-			(*child_it)->transform.inverse = getInverseMatrix();
-			(*child_it)->parent = this->parent;
-		}
-	}
-
-	void setParent(Object* parent) {
-		this->parent = parent;
-		Object* p = this;
-		parent->children.push_back(p);
-	}
-
-	Matrix4 getMatrix() {
-		return parent->transform.matrix * transform.matrix;
-	}
-
-	Matrix4 getInverseMatrix() {
-		return transform.inverse * parent->transform.inverse;
-	}
-
 	static const Object nullObject;
+	Transform transform;
 
-private:
+	virtual ~Object();
+	void setParent(Object* parent);
+	Matrix4 getMatrix();
+	Matrix4 getInverseMatrix();
+
+protected:
 	const Object* parent = &nullObject;
 	std::vector<Object*> children;
 };
 
+
+class Camera : public Object {
+public:
+	int width, height;
+	Matrix4 projection;
+	Camera(int width, int height, float d, FrameBuffer* fb);
+	FrameBuffer& getFrameBuffer();
+
+private:
+	FrameBuffer* frameBuffer;
+};
+
+
+class ObjectRenderable : public Object {
+public:
+	ObjectRenderable(Camera camera);
+	void draw();
+	void drawPixel(float x, float y, Color color);
+	void drawPixel(int x, int y, Color color);
+	void drawLine(float xA, float yA, float xB, float yB, Color colorA, Color colorB);
+	void drawLine(Vector2 v, Vector2 w, Color color);
+
+private:
+	Mesh mesh;
+	Camera camera;
+};

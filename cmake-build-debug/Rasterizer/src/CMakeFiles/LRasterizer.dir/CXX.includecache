@@ -55,6 +55,10 @@ Transform.h
 ../Rasterizer/src/Public/Transform.h
 Mesh.h
 ../Rasterizer/src/Public/Mesh.h
+FrameBuffer.h
+../Rasterizer/src/Public/FrameBuffer.h
+Color.h
+../Rasterizer/src/Public/Color.h
 vector
 -
 

@@ -25,9 +25,12 @@ Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Mesh.cpp.obj: ../Rasterizer/sr
 
 Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Object.cpp.obj: ../LMath/src/Public/Matrix4.h
 Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Object.cpp.obj: ../LMath/src/Public/Vector.h
+Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Object.cpp.obj: ../Rasterizer/src/Public/Color.h
+Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Object.cpp.obj: ../Rasterizer/src/Public/FrameBuffer.h
 Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Object.cpp.obj: ../Rasterizer/src/Public/Mesh.h
 Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Object.cpp.obj: ../Rasterizer/src/Public/Object.h
 Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Object.cpp.obj: ../Rasterizer/src/Public/Transform.h
+Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Object.cpp.obj: ../Rasterizer/src/Public/Utils.h
 Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Object.cpp.obj: ../Rasterizer/src/Private/Object.cpp
 
 Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Transform.cpp.obj: ../LMath/src/Public/Matrix4.h
