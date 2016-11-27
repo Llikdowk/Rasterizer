@@ -32,22 +32,23 @@ void Canvas::draw(s_t deltaTime) {
 	using namespace lmath;
 
 	//Matrix4 worldToCamera = Matrix4::identity;
-	Transform camera; // TODO: transform into object
-	camera.translate(0, 0, -2);
-	camera.rotate_y(elapsedTime);
+	Object camera; // TODO: transform into object
+	camera.transform.translate(0, 0, -2);
+	//camera.rotate_y(elapsedTime);
 	float d = .5f;// + (sinf(elapsedTime)+1.0f) / 2.0f;
 	Matrix4 projection = Matrix4::identity;
 	projection[3][3] = 0;
 	projection[3][2] = d;
 
+	float s = sinf(elapsedTime);
 	Object cube;
 	cube.mesh = Mesh::cube;
-	cube.transform.translate(2, 0, 0);
+	cube.transform.translate(s, 0, 0);
 	Object cube2;
+	cube2.setParent(&cube);
 	cube2.mesh = Mesh::cube;
-	cube2.transform = cube.transform;
-	cube2.transform.scale(.5f,.5f,.5f);
-	cube2.transform.rotate_y(3.141519f/4.0f);
+	cube2.transform.scale(.25f,.25f,.25f);
+	cube2.transform.rotate_y(3.141519f/4.0f + s);
 
 	std::vector<Object> objects;
 	objects.push_back(cube);
@@ -57,8 +58,8 @@ void Canvas::draw(s_t deltaTime) {
 		for (std::vector<Vector3>::iterator vertex_it = (*object_it).mesh.vertices.begin(); vertex_it != (*object_it).mesh.vertices.end(); ++vertex_it) {
 			Vector4 vertex = *vertex_it;
 			vertex.w = 1.0f;
-			Vector4 worldPoint = (*object_it).transform.matrix * vertex;
-			Vector4 cameraPoint = camera.inverse * worldPoint; // camera-> world to camera, not local to world
+			Vector4 worldPoint = object_it->getMatrix() * vertex;
+			Vector4 cameraPoint = camera.getInverseMatrix() * worldPoint; // camera-> world to camera, not local to world
 			//if (cameraPoint.z < 0.0f) continue; //fixme! near clipping
 			Vector4 screenPoint = projection * cameraPoint;
 			screenPoint /= screenPoint.w;

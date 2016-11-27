@@ -318,6 +318,33 @@ Private/Mesh.cpp.s:
 	cd /d D:\WORKSPACE\C++\Rasterizer\cmake-build-debug && $(MAKE) -f Rasterizer\src\CMakeFiles\LRasterizer.dir\build.make Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Mesh.cpp.s
 .PHONY : Private/Mesh.cpp.s
 
+Private/Object.obj: Private/Object.cpp.obj
+
+.PHONY : Private/Object.obj
+
+# target to build an object file
+Private/Object.cpp.obj:
+	cd /d D:\WORKSPACE\C++\Rasterizer\cmake-build-debug && $(MAKE) -f Rasterizer\src\CMakeFiles\LRasterizer.dir\build.make Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Object.cpp.obj
+.PHONY : Private/Object.cpp.obj
+
+Private/Object.i: Private/Object.cpp.i
+
+.PHONY : Private/Object.i
+
+# target to preprocess a source file
+Private/Object.cpp.i:
+	cd /d D:\WORKSPACE\C++\Rasterizer\cmake-build-debug && $(MAKE) -f Rasterizer\src\CMakeFiles\LRasterizer.dir\build.make Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Object.cpp.i
+.PHONY : Private/Object.cpp.i
+
+Private/Object.s: Private/Object.cpp.s
+
+.PHONY : Private/Object.s
+
+# target to generate assembly for a file
+Private/Object.cpp.s:
+	cd /d D:\WORKSPACE\C++\Rasterizer\cmake-build-debug && $(MAKE) -f Rasterizer\src\CMakeFiles\LRasterizer.dir\build.make Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Object.cpp.s
+.PHONY : Private/Object.cpp.s
+
 Private/Transform.obj: Private/Transform.cpp.obj
 
 .PHONY : Private/Transform.obj
@@ -401,6 +428,9 @@ help:
 	@echo ... Private/Mesh.obj
 	@echo ... Private/Mesh.i
 	@echo ... Private/Mesh.s
+	@echo ... Private/Object.obj
+	@echo ... Private/Object.i
+	@echo ... Private/Object.s
 	@echo ... Private/Transform.obj
 	@echo ... Private/Transform.i
 	@echo ... Private/Transform.s

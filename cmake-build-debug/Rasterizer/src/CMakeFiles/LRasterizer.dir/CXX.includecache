@@ -51,12 +51,12 @@ Vector.h
 -
 
 ../Rasterizer/src/Public/Object.h
-vector
--
 Transform.h
 ../Rasterizer/src/Public/Transform.h
 Mesh.h
 ../Rasterizer/src/Public/Mesh.h
+vector
+-
 
 ../Rasterizer/src/Public/Transform.h
 Matrix4.h
@@ -665,6 +665,10 @@ algorithm
 D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Private/Mesh.cpp
 Mesh.h
 D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Private/Mesh.h
+
+D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Private/Object.cpp
+Object.h
+D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Private/Object.h
 
 D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Private/Transform.cpp
 Transform.h

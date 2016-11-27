@@ -49,12 +49,12 @@ Vector.h
 -
 
 ../Rasterizer/src/Public/Object.h
-vector
--
 Transform.h
 ../Rasterizer/src/Public/Transform.h
 Mesh.h
 ../Rasterizer/src/Public/Mesh.h
+vector
+-
 
 ../Rasterizer/src/Public/Transform.h
 Matrix4.h

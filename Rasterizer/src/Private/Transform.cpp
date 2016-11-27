@@ -6,6 +6,7 @@
 #include <cmath>
 
 using namespace lmath;
+
 Transform& Transform::translate(float x, float y, float z) {
 	Matrix4 forward_translation = {
 			1,0,0,x,
