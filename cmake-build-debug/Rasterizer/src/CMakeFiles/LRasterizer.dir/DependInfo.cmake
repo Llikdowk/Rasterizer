@@ -8,8 +8,8 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Private/Color.cpp" "D:/WORKSPACE/C++/Rasterizer/cmake-build-debug/Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Color.cpp.obj"
   "D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Private/FrameBuffer.cpp" "D:/WORKSPACE/C++/Rasterizer/cmake-build-debug/Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/FrameBuffer.cpp.obj"
   "D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Private/Mesh.cpp" "D:/WORKSPACE/C++/Rasterizer/cmake-build-debug/Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Mesh.cpp.obj"
+  "D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Private/MeshRenderer.cpp" "D:/WORKSPACE/C++/Rasterizer/cmake-build-debug/Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/MeshRenderer.cpp.obj"
   "D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Private/Object.cpp" "D:/WORKSPACE/C++/Rasterizer/cmake-build-debug/Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Object.cpp.obj"
-  "D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Private/RenderMesh.cpp" "D:/WORKSPACE/C++/Rasterizer/cmake-build-debug/Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/RenderMesh.cpp.obj"
   "D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Private/Transform.cpp" "D:/WORKSPACE/C++/Rasterizer/cmake-build-debug/Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Transform.cpp.obj"
   "D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Private/Window.cpp" "D:/WORKSPACE/C++/Rasterizer/cmake-build-debug/Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Window.cpp.obj"
   )

@@ -333,6 +333,10 @@ gtest/gtest.h
 -
 Color.h
 -
+iostream
+-
+../Utils/Format.h
+D:/WORKSPACE/C++/Rasterizer/TestSuite/tests/Utils/Format.h
 
 D:/WORKSPACE/C++/Rasterizer/TestSuite/tests/Rasterizer_test/test_framebuffer.cpp
 gtest/gtest.h
@@ -347,9 +351,11 @@ D:/WORKSPACE/C++/Rasterizer/TestSuite/tests/Utils/Format.h
 D:/WORKSPACE/C++/Rasterizer/TestSuite/tests/Rasterizer_test/test_transform.cpp
 gtest/gtest.h
 -
-Transform.h
--
 Vector.h
+-
+Matrix4.h
+-
+Transform.h
 -
 
 D:/WORKSPACE/C++/Rasterizer/TestSuite/tests/Utils/Format.cpp

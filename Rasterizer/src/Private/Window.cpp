@@ -8,7 +8,7 @@ Window::Window()
 	running(0),
 	window(NULL),
 	renderer(NULL),
-	canvas(Canvas(Config::windowWidth, Config::windowHeight))
+	canvas(Config::windowWidth, Config::windowHeight)
 {
 	
 }

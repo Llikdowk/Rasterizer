@@ -7,7 +7,7 @@ FrameBuffer::FrameBuffer(int width, int height)
 {
 	clear(0xFFFFFFff);
 }
-
+/*
 FrameBuffer::FrameBuffer(FrameBuffer&& fb)
 	: 
 	width(fb.width), 
@@ -24,7 +24,7 @@ FrameBuffer::FrameBuffer(const FrameBuffer& fb)
 {
 	std::copy(fb.framebuffer, fb.framebuffer + width*height, framebuffer);
 }
-
+*/
 FrameBuffer::~FrameBuffer()
 {
 	delete[] framebuffer;

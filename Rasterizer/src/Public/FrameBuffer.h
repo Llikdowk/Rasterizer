@@ -12,8 +12,8 @@ public:
 	FrameBuffer(int width, int height);
 	~FrameBuffer();
 	
-	FrameBuffer(const FrameBuffer&);
-	FrameBuffer(FrameBuffer&&);
+	FrameBuffer(const FrameBuffer&) = delete;
+	FrameBuffer(FrameBuffer&&) = delete;
 	FrameBuffer operator=(const FrameBuffer&) = delete;
 	FrameBuffer operator=(FrameBuffer&&) = delete;
 

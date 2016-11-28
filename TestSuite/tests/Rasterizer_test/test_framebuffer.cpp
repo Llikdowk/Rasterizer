@@ -18,7 +18,7 @@ TEST(check, color) {
 
 TEST(check, copy_constructor) { // fixme? exit code 0xc0000005
     FrameBuffer t(800, 600);
-    FrameBuffer fb(t);
+    FrameBuffer fb(t); // TODO
     EXPECT_EQ(fb.width, 800);
     EXPECT_EQ(fb.height, 600);
 }

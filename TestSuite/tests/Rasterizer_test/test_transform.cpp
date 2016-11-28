@@ -3,6 +3,10 @@
 //
 
 #include <gtest/gtest.h>
+
+// fixme! shame on me!
+#define private public
+
 #include <Vector.h>
 #include <Matrix4.h>
 #include <Transform.h>

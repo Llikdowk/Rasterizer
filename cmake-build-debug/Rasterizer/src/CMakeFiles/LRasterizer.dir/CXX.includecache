@@ -670,6 +670,12 @@ D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Private/Mesh.cpp
 Mesh.h
 D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Private/Mesh.h
 
+D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Private/MeshRenderer.cpp
+Color.h
+-
+MeshRenderer.h
+D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Private/MeshRenderer.h
+
 D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Private/Object.cpp
 iostream
 -

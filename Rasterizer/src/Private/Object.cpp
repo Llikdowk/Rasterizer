@@ -87,7 +87,7 @@ void ObjectRenderable::draw() const {
 		}
 
 		for (auto edge_it = this->mesh.edges.begin(); edge_it != this->mesh.edges.end(); edge_it += 2) {
-			renderer->drawLine(screenPoints[*edge_it], screenPoints[*(edge_it+1)], Color::White);
+			renderer->drawLine(screenPoints[*edge_it], screenPoints[*(edge_it+1)], color);
 		}
 }
 

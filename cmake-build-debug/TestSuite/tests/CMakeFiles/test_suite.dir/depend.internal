@@ -78,6 +78,7 @@ TestSuite/tests/CMakeFiles/test_suite.dir/Rasterizer_test/test_color.cpp.obj
  ../TestSuite/thirdparty/googletest/googletest/include/gtest/internal/gtest-tuple.h
  ../TestSuite/thirdparty/googletest/googletest/include/gtest/internal/gtest-type-util.h
  D:/WORKSPACE/C++/Rasterizer/TestSuite/tests/Rasterizer_test/test_color.cpp
+ D:/WORKSPACE/C++/Rasterizer/TestSuite/tests/Utils/Format.h
 TestSuite/tests/CMakeFiles/test_suite.dir/Rasterizer_test/test_framebuffer.cpp.obj
  ../Rasterizer/src/Public/Color.h
  ../Rasterizer/src/Public/FrameBuffer.h

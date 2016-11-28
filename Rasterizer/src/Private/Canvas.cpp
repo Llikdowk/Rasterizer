@@ -5,7 +5,7 @@ Canvas::Canvas(int width, int height)
 	: 
 	width(width), 
 	height(height),
-	framebuffer(FrameBuffer(width, height))
+	framebuffer(width, height)
 {
 	init();
 }
@@ -33,7 +33,7 @@ void Canvas::draw(s_t deltaTime) {
 	cube2.transform.rotate_y(3.141519f/4.0f + s);
 
 	ObjectRenderable cube3(camera, Mesh::cube);
-	//cube3.color = Color::Magenta;
+	cube3.color = Color::Magenta;
 	cube3.transform.scale(.25f,.25f,.25f);
 	cube3.setParent(&cube2);
 	cube3.transform.translate(1, 0, 0);

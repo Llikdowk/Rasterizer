@@ -49,7 +49,7 @@ public:
 	ObjectRenderable operator=(const ObjectRenderable&) = delete;
 	void draw() const;
 
-//	Color color = Color::White;
+	Color color = Color::Cyan;
 
 private:
 	Camera& camera;

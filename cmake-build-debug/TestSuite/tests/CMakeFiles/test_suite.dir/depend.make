@@ -77,6 +77,7 @@ TestSuite/tests/CMakeFiles/test_suite.dir/Rasterizer_test/test_color.cpp.obj: ..
 TestSuite/tests/CMakeFiles/test_suite.dir/Rasterizer_test/test_color.cpp.obj: ../TestSuite/thirdparty/googletest/googletest/include/gtest/internal/gtest-tuple.h
 TestSuite/tests/CMakeFiles/test_suite.dir/Rasterizer_test/test_color.cpp.obj: ../TestSuite/thirdparty/googletest/googletest/include/gtest/internal/gtest-type-util.h
 TestSuite/tests/CMakeFiles/test_suite.dir/Rasterizer_test/test_color.cpp.obj: ../TestSuite/tests/Rasterizer_test/test_color.cpp
+TestSuite/tests/CMakeFiles/test_suite.dir/Rasterizer_test/test_color.cpp.obj: ../TestSuite/tests/Utils/Format.h
 
 TestSuite/tests/CMakeFiles/test_suite.dir/Rasterizer_test/test_framebuffer.cpp.obj: ../Rasterizer/src/Public/Color.h
 TestSuite/tests/CMakeFiles/test_suite.dir/Rasterizer_test/test_framebuffer.cpp.obj: ../Rasterizer/src/Public/FrameBuffer.h

@@ -137,8 +137,8 @@ clean: Rasterizer/src/CMakeFiles/LRasterizer.dir/clean
 # Target rules for target Rasterizer/src/CMakeFiles/Rasterizer.dir
 
 # All Build rule for target.
-Rasterizer/src/CMakeFiles/Rasterizer.dir/all: LMath/src/CMakeFiles/LMath.dir/all
 Rasterizer/src/CMakeFiles/Rasterizer.dir/all: Rasterizer/src/CMakeFiles/LRasterizer.dir/all
+Rasterizer/src/CMakeFiles/Rasterizer.dir/all: LMath/src/CMakeFiles/LMath.dir/all
 	$(MAKE) -f Rasterizer\src\CMakeFiles\Rasterizer.dir\build.make Rasterizer/src/CMakeFiles/Rasterizer.dir/depend
 	$(MAKE) -f Rasterizer\src\CMakeFiles\Rasterizer.dir\build.make Rasterizer/src/CMakeFiles/Rasterizer.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=D:\WORKSPACE\C++\Rasterizer\cmake-build-debug\CMakeFiles --progress-num=13,14 "Built target Rasterizer"
@@ -495,10 +495,10 @@ TestSuite/tests/preinstall:
 # Target rules for target TestSuite/tests/CMakeFiles/test_suite.dir
 
 # All Build rule for target.
-TestSuite/tests/CMakeFiles/test_suite.dir/all: LMath/src/CMakeFiles/LMath.dir/all
 TestSuite/tests/CMakeFiles/test_suite.dir/all: Rasterizer/src/CMakeFiles/LRasterizer.dir/all
-TestSuite/tests/CMakeFiles/test_suite.dir/all: TestSuite/thirdparty/googletest/googlemock/gtest/CMakeFiles/gtest.dir/all
+TestSuite/tests/CMakeFiles/test_suite.dir/all: LMath/src/CMakeFiles/LMath.dir/all
 TestSuite/tests/CMakeFiles/test_suite.dir/all: TestSuite/thirdparty/googletest/googlemock/gtest/CMakeFiles/gtest_main.dir/all
+TestSuite/tests/CMakeFiles/test_suite.dir/all: TestSuite/thirdparty/googletest/googlemock/gtest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f TestSuite\tests\CMakeFiles\test_suite.dir\build.make TestSuite/tests/CMakeFiles/test_suite.dir/depend
 	$(MAKE) -f TestSuite\tests\CMakeFiles\test_suite.dir\build.make TestSuite/tests/CMakeFiles/test_suite.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=D:\WORKSPACE\C++\Rasterizer\cmake-build-debug\CMakeFiles --progress-num=26,27,28,29,30,31,32,33 "Built target test_suite"
