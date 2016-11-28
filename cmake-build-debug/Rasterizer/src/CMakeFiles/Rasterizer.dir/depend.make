@@ -7,8 +7,8 @@ Rasterizer/src/CMakeFiles/Rasterizer.dir/EntryPoint.cpp.obj: ../Rasterizer/src/P
 Rasterizer/src/CMakeFiles/Rasterizer.dir/EntryPoint.cpp.obj: ../Rasterizer/src/Public/Color.h
 Rasterizer/src/CMakeFiles/Rasterizer.dir/EntryPoint.cpp.obj: ../Rasterizer/src/Public/FrameBuffer.h
 Rasterizer/src/CMakeFiles/Rasterizer.dir/EntryPoint.cpp.obj: ../Rasterizer/src/Public/Mesh.h
+Rasterizer/src/CMakeFiles/Rasterizer.dir/EntryPoint.cpp.obj: ../Rasterizer/src/Public/MeshRenderer.h
 Rasterizer/src/CMakeFiles/Rasterizer.dir/EntryPoint.cpp.obj: ../Rasterizer/src/Public/Object.h
-Rasterizer/src/CMakeFiles/Rasterizer.dir/EntryPoint.cpp.obj: ../Rasterizer/src/Public/RenderMesh.h
 Rasterizer/src/CMakeFiles/Rasterizer.dir/EntryPoint.cpp.obj: ../Rasterizer/src/Public/Transform.h
 Rasterizer/src/CMakeFiles/Rasterizer.dir/EntryPoint.cpp.obj: ../Rasterizer/src/Public/Utils.h
 Rasterizer/src/CMakeFiles/Rasterizer.dir/EntryPoint.cpp.obj: ../Rasterizer/src/Public/Window.h

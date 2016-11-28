@@ -8,12 +8,12 @@
 #include "Mesh.h"
 #include "FrameBuffer.h"
 #include "Color.h"
-#include "RenderMesh.h"
+#include "MeshRenderer.h"
 #include <vector>
+#include <memory>
 
 class Object { // TODO: test
 public:
-	static const Object nullObject;
 	Transform transform;
 
 	virtual ~Object();
@@ -22,16 +22,18 @@ public:
 	Matrix4 getInverseMatrix() const;
 
 protected:
-	const Object* parent = &nullObject;
+	Object* parent = nullptr;
 	std::vector<Object*> children;
 };
-
 
 class Camera : public Object {
 public:
 	int width, height;
 	Matrix4 projection;
+
 	Camera(int width, int height, float d, FrameBuffer* fb);
+	virtual ~Camera() {}
+
 	FrameBuffer& getFrameBuffer();
 
 private:
@@ -43,11 +45,14 @@ class ObjectRenderable : public Object {
 
 public:
 	ObjectRenderable(Camera&, const Mesh&);
-	virtual ~ObjectRenderable();
+	ObjectRenderable(const ObjectRenderable&) = delete;
+	ObjectRenderable operator=(const ObjectRenderable&) = delete;
 	void draw() const;
+
+//	Color color = Color::White;
 
 private:
 	Camera& camera;
 	const Mesh& mesh;
-	NaiveRender renderer; // TODO RenderMesh?
+	std::unique_ptr<MeshRenderer> renderer;
 };

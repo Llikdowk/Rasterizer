@@ -506,7 +506,7 @@
 		<Unit filename="D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Private/Object.cpp">
 			<Option target="LRasterizer"/>
 		</Unit>
-		<Unit filename="D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Private/RenderMesh.cpp">
+		<Unit filename="D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Private/MeshRenderer.cpp">
 			<Option target="LRasterizer"/>
 		</Unit>
 		<Unit filename="D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Private/Transform.cpp">
@@ -533,7 +533,7 @@
 		<Unit filename="D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Public/Object.h">
 			<Option target="LRasterizer"/>
 		</Unit>
-		<Unit filename="D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Public/RenderMesh.h">
+		<Unit filename="D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Public/MeshRenderer.h">
 			<Option target="LRasterizer"/>
 		</Unit>
 		<Unit filename="D:/WORKSPACE/C++/Rasterizer/Rasterizer/src/Public/Transform.h">

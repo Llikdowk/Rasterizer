@@ -345,32 +345,32 @@ Private/Object.cpp.s:
 	cd /d D:\WORKSPACE\C++\Rasterizer\cmake-build-debug && $(MAKE) -f Rasterizer\src\CMakeFiles\LRasterizer.dir\build.make Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/Object.cpp.s
 .PHONY : Private/Object.cpp.s
 
-Private/RenderMesh.obj: Private/RenderMesh.cpp.obj
+Private/MeshRenderer.obj: Private/MeshRenderer.cpp.obj
 
-.PHONY : Private/RenderMesh.obj
+.PHONY : Private/MeshRenderer.obj
 
 # target to build an object file
-Private/RenderMesh.cpp.obj:
-	cd /d D:\WORKSPACE\C++\Rasterizer\cmake-build-debug && $(MAKE) -f Rasterizer\src\CMakeFiles\LRasterizer.dir\build.make Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/RenderMesh.cpp.obj
-.PHONY : Private/RenderMesh.cpp.obj
+Private/MeshRenderer.cpp.obj:
+	cd /d D:\WORKSPACE\C++\Rasterizer\cmake-build-debug && $(MAKE) -f Rasterizer\src\CMakeFiles\LRasterizer.dir\build.make Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/MeshRenderer.cpp.obj
+.PHONY : Private/MeshRenderer.cpp.obj
 
-Private/RenderMesh.i: Private/RenderMesh.cpp.i
+Private/MeshRenderer.i: Private/MeshRenderer.cpp.i
 
-.PHONY : Private/RenderMesh.i
+.PHONY : Private/MeshRenderer.i
 
 # target to preprocess a source file
-Private/RenderMesh.cpp.i:
-	cd /d D:\WORKSPACE\C++\Rasterizer\cmake-build-debug && $(MAKE) -f Rasterizer\src\CMakeFiles\LRasterizer.dir\build.make Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/RenderMesh.cpp.i
-.PHONY : Private/RenderMesh.cpp.i
+Private/MeshRenderer.cpp.i:
+	cd /d D:\WORKSPACE\C++\Rasterizer\cmake-build-debug && $(MAKE) -f Rasterizer\src\CMakeFiles\LRasterizer.dir\build.make Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/MeshRenderer.cpp.i
+.PHONY : Private/MeshRenderer.cpp.i
 
-Private/RenderMesh.s: Private/RenderMesh.cpp.s
+Private/MeshRenderer.s: Private/MeshRenderer.cpp.s
 
-.PHONY : Private/RenderMesh.s
+.PHONY : Private/MeshRenderer.s
 
 # target to generate assembly for a file
-Private/RenderMesh.cpp.s:
-	cd /d D:\WORKSPACE\C++\Rasterizer\cmake-build-debug && $(MAKE) -f Rasterizer\src\CMakeFiles\LRasterizer.dir\build.make Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/RenderMesh.cpp.s
-.PHONY : Private/RenderMesh.cpp.s
+Private/MeshRenderer.cpp.s:
+	cd /d D:\WORKSPACE\C++\Rasterizer\cmake-build-debug && $(MAKE) -f Rasterizer\src\CMakeFiles\LRasterizer.dir\build.make Rasterizer/src/CMakeFiles/LRasterizer.dir/Private/MeshRenderer.cpp.s
+.PHONY : Private/MeshRenderer.cpp.s
 
 Private/Transform.obj: Private/Transform.cpp.obj
 
@@ -458,9 +458,9 @@ help:
 	@echo ... Private/Object.obj
 	@echo ... Private/Object.i
 	@echo ... Private/Object.s
-	@echo ... Private/RenderMesh.obj
-	@echo ... Private/RenderMesh.i
-	@echo ... Private/RenderMesh.s
+	@echo ... Private/MeshRenderer.obj
+	@echo ... Private/MeshRenderer.i
+	@echo ... Private/MeshRenderer.s
 	@echo ... Private/Transform.obj
 	@echo ... Private/Transform.i
 	@echo ... Private/Transform.s

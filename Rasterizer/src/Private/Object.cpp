@@ -2,30 +2,44 @@
 // Created by Llikdowk on 27-Nov-16.
 //
 
+#include <iostream>
 #include "Object.h"
 
-const Object Object::nullObject = Object();
-
-Object::~Object() { // TODO read about virtual destructors
-	for (std::vector<Object *>::iterator child_it = children.begin(); child_it != children.end(); ++child_it) {
+Object::~Object() {
+	for (auto child_it = children.begin(); child_it != children.end(); ++child_it) {
 		(*child_it)->transform.matrix = getMatrix();
 		(*child_it)->transform.inverse = getInverseMatrix();
 		(*child_it)->parent = this->parent;
+	}
+
+	if (parent != nullptr) {
+		auto removed_begin = std::remove(parent->children.begin(), parent->children.end(), this);
+		parent->children.erase(removed_begin, parent->children.end());
 	}
 }
 
 void Object::setParent(Object* parent) {
 	this->parent = parent;
 	Object* p = this;
-	parent->children.push_back(p);
+	this->parent->children.push_back(p);
+	transform.matrix = parent->transform.inverse * transform.matrix;
+	transform.inverse = transform.inverse * parent->transform.matrix; // TODO test
 }
 
 Matrix4 Object::getMatrix() const {
-	return parent->transform.matrix * transform.matrix;
+	if (parent == nullptr) {
+		return transform.matrix;
+	} else {
+		return parent->getMatrix() * transform.matrix;
+	}
 }
 
 Matrix4 Object::getInverseMatrix() const {
-	return transform.inverse * parent->transform.inverse;
+	if (parent == nullptr) {
+		return transform.inverse;
+	} else {
+		return transform.inverse * parent->getInverseMatrix();
+	}
 }
 
 
@@ -52,14 +66,10 @@ ObjectRenderable::ObjectRenderable(Camera& camera, const Mesh& mesh)
 		: Object(),
 		  camera(camera),
 		  mesh(mesh),
-		  renderer(&(camera.getFrameBuffer()))
-{
-	//renderer = new NaiveRender(&(camera.getFrameBuffer())); //TODO: analyze this 'new' use properly
-}
-
-ObjectRenderable::~ObjectRenderable() {
-//	delete renderer;
-}
+		  renderer(new NaiveRenderer(camera.getFrameBuffer()))
+		  //renderer(new NaiveRenderer(&(camera.getFrameBuffer())))
+		  //renderer(&(camera.getFrameBuffer()))
+{}
 
 void ObjectRenderable::draw() const {
 	std::vector<Vector2> screenPoints;
@@ -77,7 +87,7 @@ void ObjectRenderable::draw() const {
 		}
 
 		for (auto edge_it = this->mesh.edges.begin(); edge_it != this->mesh.edges.end(); edge_it += 2) {
-			renderer.drawLine(screenPoints[*edge_it], screenPoints[*(edge_it+1)], Color::White);
+			renderer->drawLine(screenPoints[*edge_it], screenPoints[*(edge_it+1)], Color::White);
 		}
 }
 

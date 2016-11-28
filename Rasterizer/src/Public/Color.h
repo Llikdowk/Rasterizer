@@ -7,6 +7,14 @@ struct Color
 public:
 	const uint8_t r, g, b, a; // TODO: use union!?
 
+	static Color ColorNormalized(float r, float g, float b, float a = 1.0f) {
+		return Color(r, g, b, a);
+	}
+
+	static Color Color256(uint8_t r, uint8_t g, uint8_t b, uint8_t a = 255) {
+		return Color(r, g, b, a);
+	}
+
 	Color(float r, float g, float b, float a) :
 		r(utils::clamp(r, 0.0f, 1.0f)*255.0f), 
 		g(utils::clamp(g, 0.0f, 1.0f)*255.0f), 

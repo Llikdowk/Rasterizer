@@ -32,11 +32,18 @@ void Canvas::draw(s_t deltaTime) {
 	cube2.transform.scale(.25f,.25f,.25f);
 	cube2.transform.rotate_y(3.141519f/4.0f + s);
 
-	std::vector<ObjectRenderable> objects;
-	objects.push_back(cube);
-	objects.push_back(cube2);
+	ObjectRenderable cube3(camera, Mesh::cube);
+	//cube3.color = Color::Magenta;
+	cube3.transform.scale(.25f,.25f,.25f);
+	cube3.setParent(&cube2);
+	cube3.transform.translate(1, 0, 0);
+
+	std::vector<ObjectRenderable*> objects;
+	objects.push_back(&cube);
+	objects.push_back(&cube2);
+	objects.push_back(&cube3);
 	for (auto object_it = objects.begin(); object_it != objects.end(); ++object_it) {
-		(*object_it).draw();
+		(*object_it)->draw();
 	}
 }
 

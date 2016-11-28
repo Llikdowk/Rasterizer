@@ -4,15 +4,15 @@
 
 #pragma once
 
+#include <iostream>
 #include "Vector.h"
 #include "Color.h"
 #include "FrameBuffer.h"
 
-class RenderMesh {
+class MeshRenderer {
 public:
-	RenderMesh(FrameBuffer* fb)
-			: frameBuffer(fb) {}
-	virtual ~RenderMesh() {} // TODO read about this (virtual destructor)
+	MeshRenderer(FrameBuffer& fb) : frameBuffer(fb) {}
+	virtual ~MeshRenderer() = default;// { std::cout << "meshRenderer destructor" << std::endl; }
 
 	virtual void drawPixel(float x, float y, Color color) const = 0;
 	virtual void drawPixel(int x, int y, Color color) const = 0;
@@ -20,14 +20,13 @@ public:
 	virtual void drawLine(lmath::Vector2 v, lmath::Vector2 w, Color color) const = 0;
 
 protected:
-	FrameBuffer* const frameBuffer;
+	FrameBuffer& frameBuffer;
 };
 
 
-class NaiveRender : public RenderMesh {
+class NaiveRenderer : public MeshRenderer {
 public:
-	NaiveRender(FrameBuffer* fb) : RenderMesh(fb) {}
-	virtual ~NaiveRender() {} // TODO read about this (virtual destructor)
+	NaiveRenderer(FrameBuffer& fb) : MeshRenderer(fb) {}
 
 	virtual void drawPixel(float x, float y, Color color) const override;
 	virtual void drawPixel(int x, int y, Color color) const override;

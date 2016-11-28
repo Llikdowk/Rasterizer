@@ -20,7 +20,7 @@ Window::~Window()
 
 void Window::start()
 {
-	int flags = SDL_WINDOW_SHOWN;
+	unsigned int flags = SDL_WINDOW_SHOWN;
 	if (SDL_Init(SDL_INIT_EVERYTHING))
 	{
 		exit(0x13);
@@ -54,12 +54,12 @@ void set_pixel(SDL_Surface *surface, int x, int y, Uint32 pixel)
 void Window::draw(s_t deltaTime)
 {
 	canvas.draw(deltaTime);
-	const FrameBuffer& framebuffer = canvas.getFrameBuffer();
+	const FrameBuffer& frameBuffer = canvas.getFrameBuffer();
 	int hasError = SDL_UpdateTexture(
 		screenTexture,
 		NULL,
-		framebuffer.getFrameBuffer(),
-		Config::windowWidth * sizeof(framebuffer.getPixel(0,0))
+		frameBuffer.getFrameBuffer(),
+		Config::windowWidth * sizeof(frameBuffer.getPixel(0,0))
 	);
 	if (hasError == -1)
 	{
