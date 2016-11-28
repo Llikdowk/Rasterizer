@@ -1,5 +1,0 @@
-"D:\Program Files (x86)\JetBrains\CLion 2016.2.2\bin\cmake\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" D:\WORKSPACE\C++\Rasterizer
--- Could NOT find PythonInterp (missing:  PYTHON_EXECUTABLE) 
--- Configuring done
--- Generating done
--- Build files have been written to: D:/WORKSPACE/C++/Rasterizer/cmake-build-debug
