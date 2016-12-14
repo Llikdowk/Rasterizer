@@ -4,7 +4,7 @@
 
 #include <Color.h>
 #include "MeshRenderer.h"
-
+//#include "Profiler.h"
 using namespace lmath;
 
 void NaiveRenderer::drawPixel(float x, float y, Color color) const {
@@ -23,6 +23,7 @@ void NaiveRenderer::drawPixel(int x, int y, Color color) const {
 }
 
 void NaiveRenderer::drawLine(float xA, float yA, float xB, float yB, Color colorA, Color colorB) const {
+	//PROFILE_SCOPED()
 	float xStep = std::abs((xB - xA) / frameBuffer.width);
 	float yStep = std::abs((yB - yA) / frameBuffer.height);
 	float step = std::max(xStep, yStep);
