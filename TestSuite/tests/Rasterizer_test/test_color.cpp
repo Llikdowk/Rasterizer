@@ -3,6 +3,7 @@
 //
 
 #include <gtest/gtest.h>
+#define private public // TODO change this hack
 #include <Color.h>
 #include <iostream>
 #include "../Utils/Format.h"

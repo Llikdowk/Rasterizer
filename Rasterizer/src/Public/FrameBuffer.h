@@ -1,5 +1,6 @@
 #pragma once
-#include <cstdint> 
+#include <cstdint>
+#include <vector>
 
 class FrameBuffer
 {
@@ -9,10 +10,10 @@ public:
 	const int width;
 	const int height;
 
-	FrameBuffer(int width, int height);
 	~FrameBuffer();
-	
-	FrameBuffer(const FrameBuffer&) = delete;
+	FrameBuffer(int width, int height);
+
+	FrameBuffer(const FrameBuffer&);// = delete;
 	FrameBuffer(FrameBuffer&&) = delete;
 	FrameBuffer operator=(const FrameBuffer&) = delete;
 	FrameBuffer operator=(FrameBuffer&&) = delete;
@@ -23,6 +24,7 @@ public:
 	void clear(rgba8_t color);
 
 private:
+	//std::vector<rgba8_t> framebuffer; //should be fixed!
 	rgba8_t* framebuffer;
 };
 

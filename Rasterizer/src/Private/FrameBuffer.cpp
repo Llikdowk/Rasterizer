@@ -2,8 +2,14 @@
 #include <assert.h>
 #include <algorithm>
 
+FrameBuffer::~FrameBuffer() {
+	delete[] framebuffer;
+}
+
 FrameBuffer::FrameBuffer(int width, int height)
-	: width(width), height(height), framebuffer(new uint32_t[width*height])
+	: width(width),
+	  height(height),
+	  framebuffer(new uint32_t[width*height])
 {
 	clear(0xFFFFFFff);
 }
@@ -16,19 +22,18 @@ FrameBuffer::FrameBuffer(FrameBuffer&& fb)
 {
 	fb.framebuffer = nullptr;
 }
+*/
+
 
 FrameBuffer::FrameBuffer(const FrameBuffer& fb)
 	:
 	width(fb.width),
-	height(fb.height)
+	height(fb.height),
+	framebuffer(new uint32_t[width*height])
 {
-	std::copy(fb.framebuffer, fb.framebuffer + width*height, framebuffer);
+	std::copy(fb.framebuffer, fb.framebuffer + fb.width * fb.height, this->framebuffer);
 }
-*/
-FrameBuffer::~FrameBuffer()
-{
-	delete[] framebuffer;
-}
+
 
 void FrameBuffer::setPixel(int x, int y, rgba8_t color)
 {
@@ -47,9 +52,10 @@ auto FrameBuffer::getPixel(int x, int y) const -> const rgba8_t&
 void FrameBuffer::clear(rgba8_t color)
 {
 	std::fill(framebuffer, framebuffer + width*height, color);
+	//framebuffer.fill(color);
 }
 
 auto FrameBuffer::getFrameBuffer() const -> const rgba8_t*
 {
-	return framebuffer;
+	return &framebuffer[0];
 }
