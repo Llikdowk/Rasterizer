@@ -49,13 +49,12 @@ Camera::Camera(int width, int height, float d, FrameBuffer* fb)
 		width(width),
 		height(height),
 		projection(
-				1,0,0,0,
-				0,1,0,0,
-				0,0,1,0,
-				0,0,d,0
+				1, 0, 0, 0,
+				0, 1, 0, 0,
+				0, 0, 1, 0,
+				0, 0, d, 0
 		),
-		frameBuffer(fb)
-{}
+		frameBuffer(fb) {}
 
 FrameBuffer& Camera::getFrameBuffer() {
 	return *frameBuffer;
@@ -67,27 +66,27 @@ ObjectRenderable::ObjectRenderable(Camera& camera, const Mesh& mesh)
 		  camera(camera),
 		  mesh(mesh),
 		  renderer(new NaiveRenderer(camera.getFrameBuffer()))
-		  //renderer(new NaiveRenderer(&(camera.getFrameBuffer())))
-		  //renderer(&(camera.getFrameBuffer()))
+//renderer(new NaiveRenderer(&(camera.getFrameBuffer())))
+//renderer(&(camera.getFrameBuffer()))
 {}
 
 void ObjectRenderable::draw() const {
 	std::vector<Vector2> screenPoints;
-		for (auto vertex_it = this->mesh.vertices.begin(); vertex_it != this->mesh.vertices.end(); ++vertex_it) {
-			Vector4 vertex = *vertex_it;
-			vertex.w = 1.0f;
-			Vector4 worldPoint = this->getMatrix() * vertex;
-			Vector4 cameraPoint = camera.getInverseMatrix() * worldPoint; // camera-> world to camera, not local to world
-			//if (cameraPoint.z < 0.0f) continue; //fixme! near clipping
-			Vector4 screenPoint = camera.projection * cameraPoint;
-			screenPoint /= screenPoint.w;
-			screenPoint.x = (screenPoint.x + 1.0f) / 2.0f;
-			screenPoint.y = (screenPoint.y + 1.0f) / 2.0f;
-			screenPoints.push_back(Vector2(screenPoint.x, screenPoint.y));
-		}
+	for (auto vertex_it = this->mesh.vertices.begin(); vertex_it != this->mesh.vertices.end(); ++vertex_it) {
+		Vector4 vertex = *vertex_it;
+		vertex.w = 1.0f;
+		Vector4 worldPoint = this->getMatrix() * vertex;
+		Vector4 cameraPoint = camera.getInverseMatrix() * worldPoint; // camera-> world to camera, not local to world
+		//if (cameraPoint.z < 0.0f) continue; //fixme! near clipping
+		Vector4 screenPoint = camera.projection * cameraPoint;
+		screenPoint /= screenPoint.w;
+		screenPoint.x = (screenPoint.x + 1.0f) / 2.0f;
+		screenPoint.y = (screenPoint.y + 1.0f) / 2.0f;
+		screenPoints.push_back(Vector2(screenPoint.x, screenPoint.y));
+	}
 
-		for (auto edge_it = this->mesh.edges.begin(); edge_it != this->mesh.edges.end(); edge_it += 2) {
-			renderer->drawLine(screenPoints[*edge_it], screenPoints[*(edge_it+1)], color);
-		}
+	for (auto edge_it = this->mesh.edges.begin(); edge_it != this->mesh.edges.end(); edge_it += 2) {
+		renderer->drawLine(screenPoints[*edge_it], screenPoints[*(edge_it + 1)], color);
+	}
 }
 

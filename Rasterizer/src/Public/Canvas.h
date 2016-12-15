@@ -1,11 +1,11 @@
 #pragma once
+
 #include "Color.h"
 #include "FrameBuffer.h"
 #include "Object.h"
 #include <cstdint> 
 
-class Canvas
-{
+class Canvas {
 public:
 	using s_t = float;
 
@@ -16,7 +16,8 @@ public:
 private:
 	int width;
 	int height;
-	FrameBuffer framebuffer;
+	FrameBuffer frameBuffer;
 	std::vector<Object> objectsList;
+
 	void init();
 };

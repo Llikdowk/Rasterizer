@@ -26,14 +26,16 @@ protected:
 	std::vector<Object*> children;
 };
 
+
 class Camera : public Object {
 public:
 	int width, height;
 	Matrix4 projection;
 
-	Camera(int width, int height, float d, FrameBuffer* fb);
-	virtual ~Camera() {}
+	virtual ~Camera() {
+	}
 
+	Camera(int width, int height, float d, FrameBuffer* fb);
 	FrameBuffer& getFrameBuffer();
 
 private:

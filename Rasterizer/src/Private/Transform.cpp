@@ -9,17 +9,17 @@ using namespace lmath;
 
 Transform& Transform::translate(float x, float y, float z) {
 	Matrix4 forward_translation = {
-			1,0,0,x,
-			0,1,0,y,
-			0,0,1,z,
-			0,0,0,1
+			1, 0, 0, x,
+			0, 1, 0, y,
+			0, 0, 1, z,
+			0, 0, 0, 1
 	};
 
 	Matrix4 backward_translation = {
-			1,0,0,-x,
-			0,1,0,-y,
-			0,0,1,-z,
-			0,0,0,1
+			1, 0, 0, -x,
+			0, 1, 0, -y,
+			0, 0, 1, -z,
+			0, 0, 0, 1
 	};
 
 	matrix = forward_translation*matrix;
@@ -42,8 +42,8 @@ Transform& Transform::rotate_y(rad_t angle) {
 			0, 0, 0, 1
 	};
 
-	matrix = forward_rotation * matrix;
-	inverse = inverse * backward_rotation;
+	matrix = forward_rotation*matrix;
+	inverse = inverse*backward_rotation;
 	return *this;
 }
 
@@ -62,7 +62,7 @@ Transform& Transform::scale(float x, float y, float z) {
 			0, 0, 0, 1
 	};
 
-	matrix = forward_scale * matrix;
-	inverse = inverse * backward_scale;
+	matrix = forward_scale*matrix;
+	inverse = inverse*backward_scale;
 	return *this;
 }

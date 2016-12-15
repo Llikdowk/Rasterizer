@@ -1,9 +1,9 @@
 #pragma once
+
 #include <cstdint>
 #include <vector>
 
-class FrameBuffer
-{
+class FrameBuffer {
 public:
 	using rgba8_t = uint32_t;
 
@@ -12,7 +12,6 @@ public:
 
 	~FrameBuffer();
 	FrameBuffer(int width, int height);
-
 	FrameBuffer(const FrameBuffer&);// = delete;
 	FrameBuffer(FrameBuffer&&) = delete;
 	FrameBuffer operator=(const FrameBuffer&) = delete;

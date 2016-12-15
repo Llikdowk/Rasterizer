@@ -11,9 +11,10 @@
 
 class MeshRenderer {
 public:
-	MeshRenderer(FrameBuffer& fb) : frameBuffer(fb) {}
-	virtual ~MeshRenderer() = default;// { std::cout << "meshRenderer destructor" << std::endl; }
+	MeshRenderer(FrameBuffer& fb) : frameBuffer(fb) {
+	}
 
+	virtual ~MeshRenderer() = default;// { std::cout << "meshRenderer destructor" << std::endl; }
 	virtual void drawPixel(float x, float y, Color color) const = 0;
 	virtual void drawPixel(int x, int y, Color color) const = 0;
 	virtual void drawLine(float xA, float yA, float xB, float yB, Color colorA, Color colorB) const = 0;
@@ -26,7 +27,8 @@ protected:
 
 class NaiveRenderer : public MeshRenderer {
 public:
-	NaiveRenderer(FrameBuffer& fb) : MeshRenderer(fb) {}
+	NaiveRenderer(FrameBuffer& fb) : MeshRenderer(fb) {
+	}
 
 	virtual void drawPixel(float x, float y, Color color) const override;
 	virtual void drawPixel(int x, int y, Color color) const override;

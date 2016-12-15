@@ -1,9 +1,9 @@
 #pragma once
+
 #include <cstdint>
 #include "Utils.h"
 
-struct Color
-{
+struct Color {
 private:
 	uint8_t data[4];
 
@@ -49,8 +49,7 @@ public:
 
 private:
 
-    Color(uint8_t r, uint8_t g, uint8_t b, uint8_t a)
-	{
+	Color(uint8_t r, uint8_t g, uint8_t b, uint8_t a) {
 		data[0] = r;
 		data[1] = g;
 		data[2] = b;
@@ -58,15 +57,15 @@ private:
 	}
 
 	Color(float r, float g, float b, float a) {
-		data[0] = (utils::clamp(r, 0.0f, 1.0f)*255.0f);
-		data[1] = (utils::clamp(g, 0.0f, 1.0f)*255.0f);
-		data[2] = (utils::clamp(b, 0.0f, 1.0f)*255.0f);
-		data[3] = (utils::clamp(a, 0.0f, 1.0f)*255.0f);
+		data[0] = (utils::clamp(r, 0.0f, 1.0f) * 255.0f);
+		data[1] = (utils::clamp(g, 0.0f, 1.0f) * 255.0f);
+		data[2] = (utils::clamp(b, 0.0f, 1.0f) * 255.0f);
+		data[3] = (utils::clamp(a, 0.0f, 1.0f) * 255.0f);
 	}
 
 public:
-    Color operator+ (const Color&) const;
-	bool operator== (const Color&) const;
+	Color operator+(const Color&) const;
+	bool operator==(const Color&) const;
 	bool operator!=(const Color&) const;
 	//friend std::ostream& operator<<(std::ostream&, const Color&);
 };

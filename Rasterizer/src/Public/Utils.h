@@ -1,19 +1,17 @@
 #pragma once
+
 #include <algorithm>
 #include <assert.h>
 
-namespace utils
-{
-	template <typename T>
-	T clamp(T value, T min, T max)
-	{
+namespace utils {
+	template<typename T>
+	T clamp(T value, T min, T max) {
 		return std::max(min, std::min(value, max));
 	}
 
-	template <typename T>
-	T lerp(T a, T b, float t)
-	{
+	template<typename T>
+	T lerp(T a, T b, float t) {
 		assert(t >= 0.0f && t <= 1.0f);
-		return a*(1 - t) + b*t;
+		return a * (1 - t) + b * t;
 	}
 }
