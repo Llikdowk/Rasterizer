@@ -1,5 +1,5 @@
 #include "Canvas.h"
-#include <iostream>
+#include <cmath>
 
 Canvas::Canvas(int width, int height)
 	: 

@@ -3,6 +3,7 @@
 //
 
 #include <Color.h>
+#include <cmath>
 #include "MeshRenderer.h"
 //#include "Profiler.h"
 using namespace lmath;
