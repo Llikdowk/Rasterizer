@@ -62,7 +62,7 @@ namespace lmath
 		virtual operator Vector2() const;
 		operator float4() const;
 
-		friend Vector4			lmath::operator*(float k, const Vector4& v);
+		friend Vector4			operator*(float k, const Vector4& v);
 		friend std::ostream&	operator<<(std::ostream& os, const Vector4& v); //TODO: should not depend on ostream
 
 	};

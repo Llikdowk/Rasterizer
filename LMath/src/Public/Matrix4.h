@@ -40,7 +40,7 @@ namespace lmath {
 
 		Matrix4 transpose();
 
-		friend Matrix4 lmath::operator*(float, const Matrix4 &);
+		friend Matrix4 operator*(float, const Matrix4 &);
 		friend std::ostream &operator<<(std::ostream &, const Matrix4 &); //TODO: should not depend on ostream
 
 	private:
