@@ -3,6 +3,7 @@
 //
 
 #include <gtest/gtest.h>
+#include <cmath>
 #include "Vector.h"
 
 using namespace lmath;
